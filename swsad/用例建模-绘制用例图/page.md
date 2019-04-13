@@ -70,9 +70,41 @@
 
 2. 订电影票：
 
+   ![2](./pic/2.jpg)
+
+   
+
 - 然后，回答下列问题：
+
   1. 为什么相似系统的用例图是相似的？
+
+     因为相似的系统，面对的参与者和用例是相似的，用例之间的关系也是同构的。用户预期的功能也是接近的。即使不同的同类系统具有不一样的拓展功能，在用例图上所体现的结构框架也是相似的。
+
   2. 如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术
+
+     在用例图上添加创新业务，满足不同时代、不同地区用户的不同需求，突出创新和与时俱进；替换老旧功能，淘汰落后、不受欢迎的业务。
+
   3. 如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用
+
+     通过创新点在图中的位置来判断。如果创新位于较高的父级，则作用比较大。如果是子类或者是被包括的关系，则作用相对较小。
+
   4. 请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表
+
+     | ID   | Name             | Imp  | Est  | Itern | How to demo                                    |
+     | ---- | ---------------- | ---- | ---- | ----- | ---------------------------------------------- |
+     | 1    | find hotel       | 10   | 16   | 4     | find the thoel by location, data, name or type |
+     | 2    | make reservation | 7    | 12   | 6     | determine the room type , time of the hotel    |
+     | 3    | manage basket    | 5    | 8    | 1     | confirm or cancel                              |
+     | 4    | payment          | 5    | 8    | 4     | make payment using outside paying system       |
+
+     
+
   5. 根据任务4，参考 [使用用例点估算软件成本](https://www.ibm.com/developerworks/cn/rational/edge/09/mar09/collaris_dekker/index.html)，给出项目用例点的估算
+
+| 用例             | \#事务 | \#计算 | 原因 | UC权重 |
+| ---------------- | ------ | ------ | ---- | ------ |
+| find hotel       | 7      | 6      | 框架 | 平均   |
+| make reservation | 5      | 4      |      | 简单   |
+| manage basket    | 1      | 1      |      | 简单   |
+| payment          | 4      | 2      |      | 简单   |
+
