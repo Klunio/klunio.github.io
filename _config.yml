@@ -56,12 +56,10 @@ tag_archive:
   type: liquid
   path: /tags/
 
-search : true
-
 comments:
-provider: "disqus"
-disqus:
-  shortname: "clooney"
+  provider: "disqus"
+  disqus:
+    shortname: "clooney"
 
 defaults:
   # _posts
@@ -69,7 +67,11 @@ defaults:
       path: ""
       type: posts
     values:
-      comments: true
+      author_profile: true
+      read_time: true
+      comments: true # true
+      share: true
+      related: true
 
 jekyll-archives:
   enabled:
@@ -82,3 +84,9 @@ jekyll-archives:
     category: /categories/:name/
     tag: /tags/:name/
 
+# Author
+author:
+  name     : "Clooney"
+  avatar   : "/assets/images/bio-photo.jpeg"
+  bio      : "I'm doing my homework here!"
+  location : "Guangzhou, China" 
