@@ -1,15 +1,15 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  - title: "分类"
+  # - title: "Quick-Start Guide"
+  #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "Categories"
     url: /categories/
-  - title: "标签"
+  - title: "Tags"
     url: /tags/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
+  - title: "About"
+    url: https://mmistakes.github.io/minimal-mistakes/about/
+  - title: "Posts"
+    url: /swsad/Software-System-Analysis-and-Design
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"

@@ -1,6 +1,9 @@
 ---
 layout: single
 author_profile: false
+date:   2019-05-06 21:48:40 +0800
+title: 用例建模-绘制用例图
+categories: jekyll update
 ---
 1、简答题
 
