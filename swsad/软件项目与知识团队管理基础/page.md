@@ -1,3 +1,7 @@
+---
+layout: single
+author_profile: false
+---
 1、简答题
 
 - 用简短的语言给出对分析、设计的理解。

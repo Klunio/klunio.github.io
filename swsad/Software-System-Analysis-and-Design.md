@@ -1,4 +1,11 @@
+---
+layout: single
+author_profile: false
+---
+
+
 ### Software System Analysis and Design
+
 
 > 系统分析与设计 - 潘茂林
 >

@@ -1,3 +1,7 @@
+---
+layout: single
+author_profile: false
+---
 #### 1.软件工程的定义
 
 **Software engineering is**:

@@ -1,9 +1,10 @@
-## Welcome!!
-
+---
+layout: home
+author_profile: true
+---
 Jekyll Themes + Markdown
 
 
 
 - ### [Software-System-Analysis-and-Design](swsad/Software-System-Analysis-and-Design)
 
-layout: home

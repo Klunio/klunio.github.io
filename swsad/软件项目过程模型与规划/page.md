@@ -1,3 +1,7 @@
+---
+layout: single
+author_profile: false
+---
 1、简单题
 
 - 简述瀑布模型、增量模型、螺旋模型（含原型方法）的优缺点

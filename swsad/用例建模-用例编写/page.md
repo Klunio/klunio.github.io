@@ -1,3 +1,8 @@
+---
+layout: single
+author_profile: false
+---
+
 # 使用 **UMLet** 建模：
 
 - 1、根据订旅馆建模文档，Asg-RH.pdf：
