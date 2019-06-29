@@ -59,6 +59,7 @@ comments:
 read_time: true
 
 search: true
+search_full_content: true
 timezone: America/New_York
 paginate: 5
 
