@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Clooney's site
 name: "Clooney"
-url: "https://klunio.github.io"
+# url: "https://klunio.github.io"
 repository: "Klunio/.github.io"
 email: gkluni317@gmail.com
 logo: "/assets/images/logo.png"
