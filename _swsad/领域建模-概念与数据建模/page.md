@@ -12,7 +12,7 @@ author_profile: false
 
 - 邻域建模：
 
-![](pic\make_reservation.png)
+![](../pic/make_reservation.png)
 
 - 数据建模：
   - Hotel(name,star,addr,loc id,brief intro,favorite,price,rating,max-discount-off)
@@ -23,11 +23,11 @@ author_profile: false
   - CreditCard (ID/PrimeryKey, TravelerID/ForeignKey, PaymentID/ForeignKey, Number, SecurityCode, ExpiryDate)
 - 对payment用例开张领域建模
 
-![](pic\payment.png)
+![](../pic/payment.png)
 
 - 2、使用 UML State Model，对每个订单对象生命周期建模
   - 建模对象： 参考 Asg_RH 文档， 对 Reservation/Order 对象建模。
   - 建模要求： 参考练习不能提供足够信息帮助你对订单对象建模，请参考现在 定旅馆 的旅游网站，尽可能分析围绕订单发生的各种情况，直到订单通过销售事件（柜台销售）结束订单。
 
-![](pic/order.png)
+![](../pic/order.png)
 
