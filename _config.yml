@@ -159,8 +159,8 @@ defaults:
 collections:
   LeiEarn:
     output: true
-    # permalink: /:collection/:path/
+    permalink: /:collection/:path/
   swsad:
     output: true
-    # permalink: /:collection/:path/
+    permalink: /:collection/:path/
 
