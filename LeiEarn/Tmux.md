@@ -38,7 +38,7 @@ yum install tmux        # Centos
 
 ​	tmux的结构包括***会话***(session)、***窗口***(window)、***窗格***(pane)三部分，会话的实质是伪终端的集合，每个窗格表示一个伪终端，多个窗格显示在一个屏幕上，这一屏幕就叫窗口。如图：
 
-![屏幕快照 2019-06-29 18.06.12](/Users/guyunquan/klunio.github.io/LeiEarn/img/tmux.png)
+![屏幕快照 2019-06-29 18.06.12](./img/tmux.png)
 
 
 
