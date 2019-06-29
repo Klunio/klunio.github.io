@@ -9,7 +9,7 @@ author_profile: true
 
 
 
-- ### [Software-System-Analysis-and-Design](_swsad/Software-System-Analysis-and-Design)
+- ### [Software-System-Analysis-and-Design](swsad/Software-System-Analysis-and-Design)
 
-- ### [Leisure Earning develpment experience](_LeiEarn/Index)
+- ### [Leisure Earning develpment experience](LeiEarn/Index)
 
