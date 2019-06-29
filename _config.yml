@@ -191,26 +191,19 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _recipes
+
+  # _LeiEarn
   - scope:
       path: ""
-      type: recipes
+      type: LeiEarn
     values:
       layout: single
       author_profile: true
       share: true
-  # _pets
+  # _swsad
   - scope:
       path: ""
-      type: pets
-    values:
-      layout: single
-      author_profile: true
-      share: true
-  # _portfolio
-  - scope:
-      path: ""
-      type: portfolio
+      type: swsad
     values:
       layout: single
       author_profile: false
