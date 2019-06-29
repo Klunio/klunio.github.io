@@ -192,7 +192,7 @@ tmux -u
 
 - [tmux基本操作](https://www.cnblogs.com/liuguanglin/p/9290345.html)
 
-- [Tmux使用手册| louis blog](https://www.google.com.hk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=5&ved=2ahUKEwi26476s47jAhXKdd4KHVWhCwsQFjAEegQIAhAB&url=http%3A%2F%2Flouiszhai.github.io%2F2017%2F09%2F30%2Ftmux%2F&usg=AOvVaw1V8I3MQXu7QDyXsEjAR5xC)
+- [Tmux使用手册\| louis blog](https://www.google.com.hk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=5&ved=2ahUKEwi26476s47jAhXKdd4KHVWhCwsQFjAEegQIAhAB&url=http%3A%2F%2Flouiszhai.github.io%2F2017%2F09%2F30%2Ftmux%2F&usg=AOvVaw1V8I3MQXu7QDyXsEjAR5xC)
 
 - [优雅地使用命令行：Tmux 终端复用](https://harttle.land/2015/11/06/tmux-startup.html)
 
