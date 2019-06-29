@@ -4,7 +4,7 @@ author_profile: false
 
 ---
 
-![image-20190629175331897](./img/logo.png)
+![image-20190629175331897](logo.png)
 
 >github:https://github.com/sysu-gfs-3
 >
@@ -12,5 +12,5 @@ author_profile: false
 
 
 
-- [帅气的使用终端，程序员利器 —— Tmux](LeiEarn/Tmux)
+- [帅气的使用终端，程序员利器 —— Tmux](Tmux)
 
