@@ -71,7 +71,9 @@ category_archive:
 tag_archive:
   type: jekyll-archives
   path: /tags/
-  
+
+encoding: utf-8
+
 jekyll-archives:
   enabled:
     - categories
