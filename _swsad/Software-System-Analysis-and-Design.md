@@ -13,7 +13,7 @@ author_profile: false
 ----
 
 1. [软件的本质与软件工程科学](../software engineering science/软件的本质与软件工程科学)
-2. [软件项目与知识团队管理](../team management/page)
+2. [软件项目与知识团队管理](../team management/软件项目与知识团队管理)
 3. [软件项目过程模型与规划](../modeling and planning/软件项目过程模型与规划)
 4. Inception 实践指南
 5. 组织第一次迭代
