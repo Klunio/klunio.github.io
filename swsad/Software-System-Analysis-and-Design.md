@@ -3,7 +3,6 @@ layout: single
 author_profile: false
 ---
 
-
 ### Software System Analysis and Design
 
 
