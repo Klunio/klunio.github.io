@@ -31,7 +31,7 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "air" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
+minimal_mistakes_skin: "mint" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
 
 plugins:
   - jekyll-feed
@@ -124,7 +124,7 @@ author:
   avatar   : "/assets/images/bio-photo.jpeg"
   bio      : "I'm doing my homework here!"
   location : "Guangzhou, China" 
-  email            :gkluni317@gmail.com
+  email            : "gkluni317@gmail.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
   bitbucket        :
