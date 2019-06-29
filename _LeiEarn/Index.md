@@ -12,5 +12,5 @@ author_profile: false
 
 
 
-- [帅气的使用终端，程序员利器 —— Tmux](Tmux.md)
+- [帅气的使用终端，程序员利器 —— Tmux](LeiEarn/Tmux)
 
