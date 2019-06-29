@@ -4,7 +4,7 @@ author_profile: false
 
 ---
 
-![image-20190629175331897](/Users/guyunquan/klunio.github.io/LeiEarn/img/image-20190629175331897.png)
+![image-20190629175331897](/Users/guyunquan/klunio.github.io/LeiEarn/img/logo.png)
 
 >github:https://github.com/sysu-gfs-3
 >
