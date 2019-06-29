@@ -31,7 +31,7 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "neon" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
+minimal_mistakes_skin: "contrast" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
 
 plugins:
   - jekyll-feed
@@ -215,3 +215,14 @@ defaults:
       layout: single
       author_profile: false
       share: true
+
+
+  # Collections
+collections:
+  LeiEarn:
+    output: true
+    permalink: /:collection/:path/
+  swsad:
+    output: true
+    permalink: /:collection/:path/
+
