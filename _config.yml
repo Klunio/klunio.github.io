@@ -210,12 +210,12 @@ defaults:
       share: true
 
 
-  # Collections
-collections:
-  LeiEarn:
-    output: true
-    permalink: /:collection/:path/
-  swsad:
-    output: true
-    permalink: /:collection/:path/
+#   # Collections
+# collections:
+#   LeiEarn:
+#     output: true
+#     permalink: /:collection/:path/
+#   swsad:
+#     output: true
+#     permalink: /:collection/:path/
 
