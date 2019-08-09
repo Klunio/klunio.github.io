@@ -1,3 +1,10 @@
+---
+layout: home
+title:  "DJANGO LEARNING NOTE"
+date:   2019-08-09 14:55:40 +0800
+categories: note Django
+---
+
 ## Django 学习笔记
 
 ### 1.安装

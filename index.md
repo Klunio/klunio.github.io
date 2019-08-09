@@ -13,3 +13,5 @@ author_profile: true
 
 - ### [Leisure Earning develpment experience](LeiEarn/Index)
 
+- ### [Leisure Earning develpment experience](posts/Django Note.md)
+
