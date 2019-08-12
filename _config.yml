@@ -164,14 +164,15 @@ defaults:
 
 # Collections
 collections:
-  LeiEarn:
-    output: true
-    permalink: /:collection/:path/
-  swsad:
+- LeiEarn:
     output: true
     permalink: /:collection/:path/
 
-  Django:
+- swsad:
+    output: true
+    permalink: /:collection/:path/
+
+- Django:
     output: true
     foo: bar
     permalink: /:collection/:path/
