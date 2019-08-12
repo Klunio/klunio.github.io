@@ -1,0 +1,547 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Flask - Clooney&#8217;s site</title>
+<meta name="description" content="Flask 实战">
+
+
+  <meta name="author" content="Clooney">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Clooney's site">
+<meta property="og:title" content="Flask">
+<meta property="og:url" content="/LeiEarn/Flask/">
+
+
+  <meta property="og:description" content="Flask 实战">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="/LeiEarn/Flask/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Clooney",
+      "url": "/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Clooney's site Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Clooney's site
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/" >Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/" >Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://mmistakes.github.io/minimal-mistakes/about/" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/collection-archive/" >Sample Collections</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">切换菜单</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">首页</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/leiearn" itemprop="item"><span itemprop="name">Leiearn</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Flask</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Flask">
+    <meta itemprop="description" content="Flask 实战">
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Flask
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="flask-实战">Flask 实战</h1>
+
+<h3 id="intro">Intro</h3>
+
+<p>Flask是一个基于python开发的开源框架，官方文档称其为”微”框架，表示Flask的目的是保持核心简单而又可扩展。Flask不会替你做出许多决定，不包含数据库抽象层、表单验证或者其他已有的库可以处理的东西。然而，Flask通过扩展为你的应用添加这些功能。</p>
+
+<h3 id="usage">Usage</h3>
+
+<h4 id="install">Install</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install flask
+</code></pre></div></div>
+
+<p>完整的flask开发环境可能需要内容组件比较多, 可以将所有相关的包放置在一个txt文件，然后使用<code class="highlighter-rouge">pip install -r requires.txt</code>进行安装。</p>
+
+<h4 id="启动">启动</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">'Hello, World!'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>首先我们导入了Flask类。该类的实例将会成为我们WSGI应用。</li>
+  <li>接着我们创建一个该类的实例。第一个参数是应用模块或者包的名称。如果你使用 一个单一模块（就像本例），那么应当使用 <code class="highlighter-rouge">__name__</code> ，因为名称会根据这个 模块是按应用方式使用还是作为一个模块导入而发生变化（可能是 ‘<strong>main</strong>’ ， 也可能是实际导入的名称）。这个参数是必需的，这样 Flask 才能知道在哪里可以 找到模板和静态文件等东西。更多内容详见 <a href="https://dormousehole.readthedocs.io/en/latest/api.html#flask.Flask"><code class="highlighter-rouge">Flask</code></a> 文档。</li>
+  <li>然后我们使用 <a href="https://dormousehole.readthedocs.io/en/latest/api.html#flask.Flask.route"><code class="highlighter-rouge">route()</code></a> 装饰器来告诉 Flask 触发函数的 URL 。</li>
+  <li>函数名称被用于生成相关联的 URL 。函数最后返回需要在用户浏览器中显示的信息。</li>
+</ul>
+
+<h4 id="初始化简介">初始化简介</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Flask实例的源码：</span>
+<span class="k">class</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">_PackageBoundObject</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">import_name</span><span class="p">,</span>  <span class="c"># 指定应用的名字和工程目录，默认为__name__</span>
+                <span class="n">static_path</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>  <span class="c"># 是静态文件存放的路径，会赋值给static_url_path参数</span>
+                <span class="n">static_url_path</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>  <span class="c"># 设置静态文件路由的前缀，默认为“/static”</span>
+                <span class="n">static_folder</span><span class="o">=</span><span class="s">'static'</span><span class="p">,</span> <span class="c"># 静态文件的存放目录， 默认值为"static"</span>
+                <span class="n">template_folder</span><span class="o">=</span><span class="s">'templates'</span><span class="p">,</span> <span class="c"># 模板文件的存放目录，默认值为"templates"</span>
+                <span class="n">instance_path</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="c"># 设置配置文件的路径，instance_relative_config=True情况下生效</span>
+                <span class="n">instance_relative_config</span><span class="o">=</span><span class="bp">False</span> <span class="c"># 设置为True表示配置文件相对于实例路径而不是根路径</span>
+                <span class="n">root_path</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="c"># 应用程序的根路径</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="c"># 设置ip，默认127.0.0.1</span>
+        <span class="n">port</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="c"># 设置端口，默认5000</span>
+        <span class="n">debug</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>  <span class="c"># 设置是否开启调试，默认false</span>
+</code></pre></div></div>
+
+<h4 id="路由">路由</h4>
+
+<p>FLask中，使用route()装饰器来把函数绑定到URL，下面是官方的例子：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">'Index Page'</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/hello'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">'Hello, World'</span>
+    
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/user/&lt;username&gt;'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show_user_profile</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
+    <span class="c"># show the user profile for that user</span>
+    <span class="k">return</span> <span class="s">'User </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">username</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/post/&lt;int:post_id&gt;'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show_post</span><span class="p">(</span><span class="n">post_id</span><span class="p">):</span>
+    <span class="c"># show the post with the given id, the id is an integer</span>
+    <span class="k">return</span> <span class="s">'Post </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">post_id</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/path/&lt;path:subpath&gt;'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show_subpath</span><span class="p">(</span><span class="n">subpath</span><span class="p">):</span>
+    <span class="c"># show the subpath after /path/</span>
+    <span class="k">return</span> <span class="s">'Subpath </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">subpath</span>
+</code></pre></div></div>
+
+<p>通过把 URL 的一部分标记为 <code class="highlighter-rouge">&lt;variable_name&gt;</code> 就可以在 URL 中添加变量。标记的 部分会作为关键字参数传递给函数。通过使用 <code class="highlighter-rouge">&lt;converter:variable_name&gt;</code> ，可以选择性的加上一个转换器。</p>
+
+<p>转换器类型：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>string</th>
+      <th>（缺省值） 接受任何不包含斜杠的文本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>int</td>
+      <td>接受正整数</td>
+    </tr>
+    <tr>
+      <td>float</td>
+      <td>接受正浮点数</td>
+    </tr>
+    <tr>
+      <td>path</td>
+      <td>类似 <code class="highlighter-rouge">string</code> ，但可以包含斜杠</td>
+    </tr>
+    <tr>
+      <td>uuid</td>
+      <td>接受 UUID 字符串</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="url构建与查看">URL构建与查看</h4>
+
+<p><code class="highlighter-rouge">url_for()</code>函数用于构建指定函数的URL。也可以使用<code class="highlighter-rouge">url_for()</code>获取某函数对应的URL。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@app.route</span><span class="p">(</span><span class="s">'/loginto'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">'login'</span><span class="p">))</span>   <span class="c"># 会打印出网址中主机名后的部分</span>
+    <span class="k">return</span> <span class="s">'Hello world!'</span>
+</code></pre></div></div>
+
+<h4 id="http方法与参数获取">HTTP方法与参数获取</h4>
+
+<p>使用route装饰器的methods参数可以设置接收到get或post方法，缺省情况下，一个路由只回应GET请求：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/login'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'GET'</span><span class="p">,</span> <span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">'POST'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">do_the_login</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">show_the_login_form</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>通过<code class="highlighter-rouge">request.get_data()</code>获得传输的数据包，然后转换为json格式：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/api/v1/login"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">'POST'</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>也可以使用<code class="highlighter-rouge">form</code>来处理表单信息：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@app.route</span><span class="p">(</span><span class="s">'/login'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">,</span> <span class="s">'GET'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">'POST'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">valid_login</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">'username'</span><span class="p">],</span>
+                       <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">'password'</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="n">log_the_user_in</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">'username'</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="s">'Invalid username/password'</span>
+    <span class="c"># the code below is executed if the request method</span>
+    <span class="c"># was GET or the credentials were invalid</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'login.html'</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>最好使用<code class="highlighter-rouge">get</code>方法来访问表单中的属性，因为<code class="highlighter-rouge">get</code>在该属性不存在的时候会返回一个用户设定的缺省值。</p>
+
+<h4 id="内容返回">内容返回</h4>
+
+<p>在进行查询的时候，我们会有大量的json格式的信息需要返回到前端进行处理：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/hello'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'GET'</span><span class="p">,</span> <span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+	<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">'message'</span><span class="p">:</span><span class="s">'hello'</span><span class="p">,</span>
+        <span class="s">'status'</span><span class="p">:</span><span class="s">'ok'</span><span class="p">}</span>
+	<span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="session">Session</h4>
+
+<p>使用<code class="highlighter-rouge">session</code>对象，允许你在不同请求之间存储信息。这个对象相当于用密钥签名加密的 cookie ，即用户可以查看你的 cookie ，但是如果没有密钥就无法修改它。</p>
+
+<p>使用<code class="highlighter-rouge">session</code>之前必须设置一个密钥：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">escape</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="s">"nQnk2n8moN=GLNmE.wL6PTZD"</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">if</span> <span class="s">'username'</span> <span class="ow">in</span> <span class="n">session</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'Logged in as </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">escape</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s">'username'</span><span class="p">])</span>
+    <span class="k">return</span> <span class="s">'You are not logged in'</span>
+  
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/login'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'GET'</span><span class="p">,</span> <span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">'POST'</span><span class="p">:</span>
+        <span class="n">session</span><span class="p">[</span><span class="s">'username'</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">'username'</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">'index'</span><span class="p">))</span>
+      
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">'/logout'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">logout</span><span class="p">():</span>
+    <span class="c"># remove the username from the session if it's there</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">'username'</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">'index'</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>上面的代码使用Session实现登入的持久化。</p>
+
+<h4 id="跨域访问">跨域访问</h4>
+
+<p>当调用服务端的域名与服务端不一致(前后端分离)的时候会出现跨域问题，可使用Flask-Cors解决以上问题</p>
+
+<ul>
+  <li>使用这种方法只能返回json格式数据，list、ndarray等都不可以</li>
+  <li>返回的对象必须是字符串、元组、响应实例或WSGI可调用</li>
+</ul>
+
+<p>安装Flask-Cors <code class="highlighter-rouge">pip install Falsk-Cors</code></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="nn">Flask</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">supports_credentials</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="reference">Reference</h3>
+
+<ul>
+  <li><a href="https://www.baidu.com/link?url=b-tGRzO2j4rq_9wdfxaRiJcJwrKFql9-zza8dl83U-vMrDa_uVNrgx3sgp6vsTi3&amp;wd=&amp;eqid=9e7c450500065435000000065d183675">Welcome to <em>Flask</em> — <em>Flask</em> 1.0.2 documentation</a></li>
+  <li><a href="https://www.baidu.com/link?url=iejRlqMUTYVeczb7nmFolwXiAGKESWNAP4E8BOzf61G7G2mONg2WyIgXbQijGFie&amp;wd=&amp;eqid=f4cb71df0003ca41000000065d183fdf"><em>Flask</em>-<em>CORS</em> — <em>Flask</em>-<em>Cors</em> 3.0.7 documentation</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">分享</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Flask%20%2FLeiEarn%2FFlask%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=%2FLeiEarn%2FFlask%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=%2FLeiEarn%2FFlask%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="分享 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">向前</a>
+    
+    
+      <a href="/LeiEarn/Index/" class="pagination--pager" title="Index
+">向后</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="输入您要搜索的关键词..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>关注:</strong></li>
+    
+
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Clooney. 技术来自于 <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

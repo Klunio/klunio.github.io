@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -12,6 +12,8 @@
 <!-- begin _includes/seo.html --><title>用例建模-绘制用例图 - Clooney’s site</title>
 <meta name="description" content="1、简答题">
 
+
+  <meta name="author" content="Clooney">
 
 
 <meta property="og:type" content="article">
@@ -41,9 +43,16 @@
 
 
 
-
-
-
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Clooney",
+      "url": "/"
+    
+  }
+</script>
 
 
 
@@ -113,7 +122,10 @@
         
           <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
         
-        <a class="site-title" href="/">Clooney's site</a>
+        <a class="site-title" href="/">
+          Clooney's site
+          
+        </a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/categories/" >Categories</a>
             </li><li class="masthead__menu-item">
@@ -121,7 +133,7 @@
             </li><li class="masthead__menu-item">
               <a href="https://mmistakes.github.io/minimal-mistakes/about/" >About</a>
             </li><li class="masthead__menu-item">
-              <a href="/swsad/Software-System-Analysis-and-Design" >Posts</a>
+              <a href="/collection-archive/" >Sample Collections</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -522,8 +534,13 @@
 
     
       <div class="search-content">
-        <div class="search-content__inner-wrap"><input type="search" id="search" aria-placeholder="输入您要搜索的关键词..." class="search-input" tabindex="-1" placeholder="输入您要搜索的关键词..." />
-    <div id="results" class="results"></div></div>
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="输入您要搜索的关键词..." />
+  </form>
+  <div id="results" class="results"></div></div>
 
       </div>
     

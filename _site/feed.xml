@@ -1,13 +1,427 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-06-29T09:40:37-04:00</updated><id>/feed.xml</id><title type="html">Clooney’s site</title><subtitle>nothing to describ</subtitle><author><name>Clooney</name><email>gkluni317@gmail.com</email></author><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2019/05/06/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-05-06T09:48:40-04:00</published><updated>2019-05-06T09:48:40-04:00</updated><id>/jekyll/update/2019/05/06/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2019/05/06/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-12T06:12:49-04:00</updated><id>/feed.xml</id><title type="html">Clooney’s site</title><subtitle>nothing to describ</subtitle><author><name>Clooney</name><email>gkluni317@gmail.com</email></author><entry><title type="html">MODEL IN DJANGO</title><link href="/note/django/2019/08/12/Django-Model.html" rel="alternate" type="text/html" title="MODEL IN DJANGO" /><published>2019-08-12T00:00:00-04:00</published><updated>2019-08-12T00:00:00-04:00</updated><id>/note/django/2019/08/12/Django-Model</id><content type="html" xml:base="/note/django/2019/08/12/Django-Model.html">&lt;p&gt;#Model in Django&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://www.liujiangblog.com/course/django/100&quot;&gt;refer&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;Django中所有的模型都必须继承&lt;code class=&quot;highlighter-rouge&quot;&gt;django.db.models.Model&lt;/code&gt;模型，不管是直接继承也好，还是间接继承也罢。&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;你唯一需要决定的是，父模型是否是一个独立自主的，同样在数据库中创建数据表的模型，还是一个只用来保存子模型共有内容，并不实际创建数据表的抽象模型。&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Clooney</name><email>gkluni317@gmail.com</email></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;Django有三种继承的方式：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;抽象基类：被用来继承的模型被称为&lt;code class=&quot;highlighter-rouge&quot;&gt;Abstract base classes&lt;/code&gt;，将子类共同的数据抽离出来，供子类继承重用，它不会创建实际的数据表；&lt;/li&gt;
+  &lt;li&gt;多表继承：&lt;code class=&quot;highlighter-rouge&quot;&gt;Multi-table inheritance&lt;/code&gt;，每一个模型都有自己的数据库表；&lt;/li&gt;
+  &lt;li&gt;代理模型：如果你只想修改模型的Python层面的行为，并不想改动模型的字段，可以使用代理模型。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;一抽象基类&quot;&gt;一、抽象基类&lt;/h3&gt;
+
+&lt;p&gt;只需要在模型的Meta类里添加&lt;code class=&quot;highlighter-rouge&quot;&gt;abstract=True&lt;/code&gt;元数据项，就可以将一个模型转换为抽象基类。&lt;strong&gt;Django不会为这种类创建实际的数据库表&lt;/strong&gt;，它们也没有管理器，不能被实例化也无法直接保存，&lt;strong&gt;它们就是用来被继承的&lt;/strong&gt;。抽象基类完全就是用来保存子模型们共有的内容部分，达到重用的目的。当它们被继承时，它们的字段会全部复制到子模型中。看下面的例子：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CommonInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PositiveIntegerField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CommonInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;home_group&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Student模型将拥有name，age，home_group三个字段，并且CommonInfo模型不能当做一个正常的模型使用。&lt;/p&gt;
+
+&lt;h4 id=&quot;抽象基类的meta数据&quot;&gt;抽象基类的Meta数据：&lt;/h4&gt;
+
+&lt;p&gt;如果子类没有声明自己的Meta类，那么它将继承抽象基类的Meta类。下面的例子则扩展了基类的Meta：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CommonInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ordering&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CommonInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CommonInfo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;db_table&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'student_info'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这里有几点要特别说明：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;抽象基类中有的元数据，子模型没有的话，直接继承；&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;抽象基类中有的元数据，子模型也有的话，直接覆盖；&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;子模型可以额外添加元数据；&lt;/li&gt;
+  &lt;li&gt;抽象基类中的&lt;code class=&quot;highlighter-rouge&quot;&gt;abstract=True&lt;/code&gt;这个元数据不会被继承。也就是说如果想让一个抽象基类的子模型，同样成为一个抽象基类，那你必须显式的在该子模型的Meta中同样声明一个&lt;code class=&quot;highlighter-rouge&quot;&gt;abstract = True&lt;/code&gt;；&lt;/li&gt;
+  &lt;li&gt;有一些元数据对抽象基类无效，比如&lt;code class=&quot;highlighter-rouge&quot;&gt;db_table&lt;/code&gt;，首先是抽象基类本身不会创建数据表，其次它的所有子类也不会按照这个元数据来设置表名。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;警惕related_name和related_query_name参数&quot;&gt;警惕related_name和related_query_name参数&lt;/h4&gt;
+
+&lt;p&gt;如果在你的抽象基类中存在ForeignKey或者ManyToManyField字段，并且使用了&lt;code class=&quot;highlighter-rouge&quot;&gt;related_name&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;related_query_name&lt;/code&gt;参数，那么一定要小心了。因为按照默认规则，每一个子类都将拥有同样的字段，这显然会导致错误。为了解决这个问题，当你在抽象基类中使用&lt;code class=&quot;highlighter-rouge&quot;&gt;related_name&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;related_query_name&lt;/code&gt;参数时，&lt;strong&gt;它们两者的值中应该包含&lt;code class=&quot;highlighter-rouge&quot;&gt;%(app_label)s&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;%(class)s&lt;/code&gt;部分：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%(class)s&lt;/code&gt;用字段所属子类的小写名替换&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%(app_label)s&lt;/code&gt;用子类所属app的小写名替换&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例如，对于&lt;code class=&quot;highlighter-rouge&quot;&gt;common/models.py&lt;/code&gt;模块：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;m2m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ManyToManyField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;OtherModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;related_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%(app_label)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%(class)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s_related&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;related_query_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%(app_label)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%(class)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;ss&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ChildA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ChildB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;对于另外一个应用中的&lt;code class=&quot;highlighter-rouge&quot;&gt;rare/models.py&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;common.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Base&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ChildB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;对于上面的继承关系：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;common.ChildA.m2m&lt;/code&gt;字段的&lt;code class=&quot;highlighter-rouge&quot;&gt;reverse name&lt;/code&gt;（反向关系名）应该是&lt;code class=&quot;highlighter-rouge&quot;&gt;common_childa_related&lt;/code&gt;；&lt;code class=&quot;highlighter-rouge&quot;&gt;reverse query name&lt;/code&gt;(反向查询名)应该是&lt;code class=&quot;highlighter-rouge&quot;&gt;common_childas&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;common.ChildB.m2m&lt;/code&gt;字段的反向关系名应该是&lt;code class=&quot;highlighter-rouge&quot;&gt;common_childb_related&lt;/code&gt;；反向查询名应该是&lt;code class=&quot;highlighter-rouge&quot;&gt;common_childbs&lt;/code&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rare.ChildB.m2m&lt;/code&gt;字段的反向关系名应该是&lt;code class=&quot;highlighter-rouge&quot;&gt;rare_childb_related&lt;/code&gt;；反向查询名应该是&lt;code class=&quot;highlighter-rouge&quot;&gt;rare_childbs&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;当然，如果你不设置&lt;code class=&quot;highlighter-rouge&quot;&gt;related_name&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;related_query_name&lt;/code&gt;参数，这些问题就不存在了。&lt;/p&gt;
+
+&lt;h3 id=&quot;二多表继承&quot;&gt;二、多表继承&lt;/h3&gt;
+
+&lt;p&gt;这种继承方式下，&lt;strong&gt;父类和子类都是独立自主、功能完整、可正常使用的模型&lt;/strong&gt;，都有自己的数据库表，内部隐含了一个一对一的关系。例如：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Place&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Restaurant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Place&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;serves_hot_dogs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BooleanField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;serves_pizza&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BooleanField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Restaurant将包含Place的所有字段&lt;/strong&gt;，并且各有各的数据库表和字段，比如：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Place&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Bob's Cafe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Restaurant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Bob's Cafe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果一个Place对象同时也是一个Restaurant对象，你可以使用小写的子类名，在父类中访问它，例如：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Place&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 如果p也是一个Restaurant对象，那么下面的调用可以获得该Restaurant对象。&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;restaurant&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Restaurant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;其机制内部隐含的OneToOne字段，形同下面所示：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;place_ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OneToOneField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Place&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on_delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CASCADE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parent_link&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;可以通过创建一个OneToOneField字段并设置 &lt;code class=&quot;highlighter-rouge&quot;&gt;parent_link=True&lt;/code&gt;，自定义这个一对一字段。&lt;/p&gt;
+
+&lt;p&gt;#####个人理解：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;假设B继承于A：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A和B的表是独立的&lt;/li&gt;
+  &lt;li&gt;因为B继承于A，因此在创建B的时候也会同时创建A&lt;/li&gt;
+  &lt;li&gt;A和B之间是一一对应的（或者A独立）&lt;/li&gt;
+  &lt;li&gt;由B生成的A是可以用过A.b找到这个原始的B，但是反过来B是找不到对应的A的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;三代理模型&quot;&gt;三、代理模型&lt;/h3&gt;
+
+&lt;p&gt;使用多表继承时，父类的每个子类都会创建一张新数据表，通常情况下，这是我们想要的操作，因为子类需要一个空间来存储不包含在父类中的数据。&lt;strong&gt;但有时，你可能只想更改模型在Python层面的行为，比如更改默认的manager管理器，或者添加一个新方法。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;代理模型就是为此而生的。你可以创建、删除、更新代理模型的实例，并且所有的数据都可以像使用原始模型（非代理类模型）一样被保存。&lt;strong&gt;不同之处在于你可以在代理模型中改变默认的排序方式和默认的manager管理器等等&lt;/strong&gt;，而不会对原始模型产生影响。&lt;/p&gt;
+
+&lt;h5 id=&quot;声明一个代理模型只需要将meta中proxy的值设为true&quot;&gt;&lt;strong&gt;声明一个代理模型只需要将Meta中proxy的值设为True。&lt;/strong&gt;&lt;/h5&gt;
+
+&lt;p&gt;&lt;strong&gt;一些约束：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;代理模型必须继承自一个非抽象的基类，并且不能同时继承多个非抽象基类；&lt;/li&gt;
+  &lt;li&gt;代理模型可以同时继承任意多个抽象基类，前提是这些抽象基类没有定义任何模型字段。&lt;/li&gt;
+  &lt;li&gt;代理模型可以同时继承多个别的代理模型，前提是这些代理模型继承同一个非抽象基类。（早期Django版本不支持这一条）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;代理模型的管理器&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;如不指定，则继承父类的管理器。如果你自己定义了管理器，那它就会成为默认管理器，但是父类的管理器依然有效。如下例子：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NewManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# ...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyPerson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NewManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果你想要向代理中添加新的管理器，而不是替换现有的默认管理器，你可以创建一个含有新的管理器的基类，并在继承时把他放在主基类的后面：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Create an abstract class for the new manager.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ExtraManagers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;secondary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NewManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyPerson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ExtraManagers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;四文件结构组织&quot;&gt;四、文件结构组织&lt;/h3&gt;
+
+&lt;p&gt;在我们使用&lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py startapp xxx&lt;/code&gt;命令创建新的应用时，Django会自动帮我们建立一个应用的基本文件组织结构，其中就包括一个&lt;code class=&quot;highlighter-rouge&quot;&gt;models.py&lt;/code&gt;文件。通常，我们把当前应用的模型都编写在这个文件里，但是如果你的模型很多，那么将单独的&lt;code class=&quot;highlighter-rouge&quot;&gt;models.py&lt;/code&gt;文件分割成一些独立的文件是个更好的做法。&lt;/p&gt;
+
+&lt;p&gt;首先，我们需要在应用中新建一个叫做&lt;code class=&quot;highlighter-rouge&quot;&gt;models&lt;/code&gt;的包，再在包下创建一个&lt;code class=&quot;highlighter-rouge&quot;&gt;__init__.py&lt;/code&gt;文件，这样才能确立包的身份。然后将&lt;code class=&quot;highlighter-rouge&quot;&gt;models.py&lt;/code&gt;文件中的模型分割到一些&lt;code class=&quot;highlighter-rouge&quot;&gt;.py&lt;/code&gt;文件中，比如&lt;code class=&quot;highlighter-rouge&quot;&gt;organic.py&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;synthetic.py&lt;/code&gt;，然后删除&lt;code class=&quot;highlighter-rouge&quot;&gt;models.py&lt;/code&gt;文件。最后在&lt;code class=&quot;highlighter-rouge&quot;&gt;__init__.py&lt;/code&gt;文件中导入所有的模型。如下例所示：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#  myapp/models/__init__.py&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.organic&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Person&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.synthetic&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;要显式明确地导入每一个模型，而不要使用&lt;code class=&quot;highlighter-rouge&quot;&gt;from .models import *&lt;/code&gt;的方式，这样不会混淆命名空间，让代码更可读，更容易被分析工具使用。&lt;/p&gt;</content><author><name>Clooney</name><email>gkluni317@gmail.com</email></author><summary type="html">#Model in Django</summary></entry><entry><title type="html">DJANGO LEARNING NOTE</title><link href="/note/django/2019/08/09/Django-Note.html" rel="alternate" type="text/html" title="DJANGO LEARNING NOTE" /><published>2019-08-09T02:55:40-04:00</published><updated>2019-08-09T02:55:40-04:00</updated><id>/note/django/2019/08/09/Django-Note</id><content type="html" xml:base="/note/django/2019/08/09/Django-Note.html">&lt;h2 id=&quot;django-学习笔记&quot;&gt;Django 学习笔记&lt;/h2&gt;
+
+&lt;h3 id=&quot;1安装&quot;&gt;1.安装&lt;/h3&gt;
+
+&lt;p&gt;Django需要数据库，所以先安装mysql或者oracle，然后&lt;code class=&quot;highlighter-rouge&quot;&gt;pip install Django&lt;/code&gt;就好&lt;/p&gt;
+
+&lt;p&gt;验证安装可以可以在python shell 中输入&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;django&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;2.1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2文件结构&quot;&gt;2.文件结构&lt;/h3&gt;
+
+&lt;p&gt;运行命令&lt;code class=&quot;highlighter-rouge&quot;&gt;django-admin startproject mysite&lt;/code&gt;，可以创建一个django项目&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;manage.py是一个让你用各种方式管理Django项目的命令行工具，更多阅读&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/django-admin/&quot;&gt;django-admin and manage.py&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;mysite/ 包含你的所有项目文件&lt;/li&gt;
+  &lt;li&gt;mysite/settings 是Django的配置文件，更多阅读&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/topics/settings/&quot;&gt;Django settings&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;mysite/urls.py是Django的URL声明，类似网站的目录&lt;/li&gt;
+  &lt;li&gt;mysite/wsgi.py是项目运行哎WSGI兼容的Web服务器上的入口&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-配置数据库&quot;&gt;3. 配置数据库&lt;/h3&gt;
+
+&lt;p&gt;打开mysite/settings.py，这是个包含了 Django 项目设置的 Python 模块。&lt;/p&gt;
+
+&lt;p&gt;通常，这个配置文件使用 SQLite 作为默认数据库。如果你不熟悉数据库，或者只是想尝试下 Django，这是最简单的选择。Python 内置 SQLite，所以你无需安装额外东西来使用它。当你开始一个真正的项目时，你可能更倾向使用一个更具扩展性的数据库，例如 PostgreSQL，避免中途切换数据库这个令人头疼的问题。&lt;/p&gt;
+
+&lt;p&gt;如果你想使用其他数据库，你需要安装合适的 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/topics/install/#database-installation&quot;&gt;database bindings&lt;/a&gt; ，然后改变设置文件中 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-DATABASES&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DATABASES&lt;/code&gt;&lt;/a&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;'default'&lt;/code&gt; 项目中的一些键值：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-DATABASE-ENGINE&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ENGINE&lt;/code&gt;&lt;/a&gt; – 可选值有 &lt;code class=&quot;highlighter-rouge&quot;&gt;'django.db.backends.sqlite3'&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;'django.db.backends.postgresql'&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;'django.db.backends.mysql'&lt;/code&gt;，或 &lt;code class=&quot;highlighter-rouge&quot;&gt;'django.db.backends.oracle'&lt;/code&gt;。其它 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/databases/#third-party-notes&quot;&gt;可用后端&lt;/a&gt;。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-NAME&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NAME&lt;/code&gt;&lt;/a&gt; - 数据库的名称。如果使用的是 SQLite，数据库将是你电脑上的一个文件，在这种情况下， &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-NAME&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NAME&lt;/code&gt;&lt;/a&gt; 应该是此文件的绝对路径，包括文件名。默认值 &lt;code class=&quot;highlighter-rouge&quot;&gt;os.path.join(BASE_DIR, 'db.sqlite3')&lt;/code&gt; 将会把数据库文件储存在项目的根目录。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果你不使用 SQLite，则必须添加一些额外设置，比如 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-USER&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;USER&lt;/code&gt;&lt;/a&gt; 、 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-PASSWORD&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PASSWORD&lt;/code&gt;&lt;/a&gt; 、 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-HOST&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HOST&lt;/code&gt;&lt;/a&gt; 等等。想了解更多数据库设置方面的内容，请看文档：&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-DATABASES&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DATABASES&lt;/code&gt;&lt;/a&gt; 。&lt;/p&gt;
+
+&lt;p&gt;编辑 &lt;code class=&quot;highlighter-rouge&quot;&gt;mysite/settings.py&lt;/code&gt; 文件前，先设置 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-TIME_ZONE&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TIME_ZONE&lt;/code&gt;&lt;/a&gt; 为你自己时区。&lt;/p&gt;
+
+&lt;p&gt;此外，关注一下文件头部的 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-INSTALLED_APPS&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;INSTALLED_APPS&lt;/code&gt;&lt;/a&gt; 设置项。这里包括了会在你项目中启用的所有 Django 应用。应用能在多个项目中使用，你也可以打包并且发布应用，让别人使用它们。&lt;/p&gt;
+
+&lt;p&gt;通常， &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-INSTALLED_APPS&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;INSTALLED_APPS&lt;/code&gt;&lt;/a&gt; 默认包括了以下 Django 的自带应用：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/contrib/admin/#module-django.contrib.admin&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;django.contrib.admin&lt;/code&gt;&lt;/a&gt; – 管理员站点， 你很快就会使用它。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/topics/auth/#module-django.contrib.auth&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;django.contrib.auth&lt;/code&gt;&lt;/a&gt; – 认证授权系统。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/contrib/contenttypes/#module-django.contrib.contenttypes&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;django.contrib.contenttypes&lt;/code&gt;&lt;/a&gt; – 内容类型框架。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/topics/http/sessions/#module-django.contrib.sessions&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;django.contrib.sessions&lt;/code&gt;&lt;/a&gt; – 会话框架。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/contrib/messages/#module-django.contrib.messages&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;django.contrib.messages&lt;/code&gt;&lt;/a&gt; – 消息框架。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/contrib/staticfiles/#module-django.contrib.staticfiles&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;django.contrib.staticfiles&lt;/code&gt;&lt;/a&gt; – 管理静态文件的框架。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这些应用被默认启用是为了给常规项目提供方便。&lt;/p&gt;
+
+&lt;p&gt;默认开启的某些应用需要至少一个数据表，所以，在使用他们之前需要在数据库中创建一些表。请执行以下命令：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python manage.py migrate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;###&lt;/p&gt;
+
+&lt;h3 id=&quot;4-创建模型&quot;&gt;4. 创建模型&lt;/h3&gt;
+
+&lt;p&gt;在model.py文件中编写我们需要的类，例如：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Question&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;question_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pub_date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTimeField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date published'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Choice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;question&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ForeignKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Question&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on_delete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CASCADE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;choice_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;votes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IntegerField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这样我们就在数据库中生成了2张表，代码十分清晰，不多加解释&lt;/p&gt;
+
+&lt;p&gt;这样的代码给了django很多信息，通过这些信息django可以&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;为这个应用创建数据库shcema(生成 &lt;strong&gt;CREATE TABLE&lt;/strong&gt;语句)&lt;/li&gt;
+  &lt;li&gt;创建可以与 &lt;strong&gt;Question&lt;/strong&gt; 和 &lt;strong&gt;Choice&lt;/strong&gt; 对象进行交互的 Python 数据库 API。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Django 应用是“可插拔”的。你可以在多个项目中使用同一个应用。除此之外，你还可以发布自己的应用，因为它们并不会被绑定到当前安装的 Django 上。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;polls的配置信息在app.py这个文件中，所以我们将&lt;code class=&quot;highlighter-rouge&quot;&gt;polls.apps.PollConfig&lt;/code&gt;这个信息写入 &lt;strong&gt;INSTALLED_APPS&lt;/strong&gt;中，接着运行&lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py makemigrations polls&lt;/code&gt;,我们就可以得到如下类似的输出：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Migrations &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'polls'&lt;/span&gt;:
+  polls/migrations/0001_initial.py:
+    - Create model Choice
+    - Create model Question
+    - Add field question to choice
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;通过&lt;code class=&quot;highlighter-rouge&quot;&gt;makemigrations&lt;/code&gt;命令，Django会检测你对模型文件的修改，并且把修改的部分储存作为一次 &lt;em&gt;迁移&lt;/em&gt;。&lt;/p&gt;
+
+&lt;p&gt;迁移是 Django 对于模型定义（也就是你的数据库结构）的变化的储存形式 - 没那么玄乎，它们其实也只是一些你磁盘上的文件。如果你想的话，你可以阅读一下你模型的迁移数据，它被储存在 &lt;code class=&quot;highlighter-rouge&quot;&gt;polls/migrations/0001_initial.py&lt;/code&gt; 里。别担心，你不需要每次都阅读迁移文件，但是它们被设计成人类可读的形式，这是为了便于你手动修改它们。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/django-admin/#django-admin-sqlmigrate&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sqlmigrate&lt;/code&gt;&lt;/a&gt; 命令接收一个迁移的名称，然后返回对应的 SQL：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python manage.py sqlmigrate polls 0001
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;我们可以得到类似的输出&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-mysql&quot;&gt;BEGIN;
+--
+-- Create model Choice
+--
+CREATE TABLE &quot;polls_choice&quot; (
+    &quot;id&quot; serial NOT NULL PRIMARY KEY,
+    &quot;choice_text&quot; varchar(200) NOT NULL,
+    &quot;votes&quot; integer NOT NULL
+);
+--
+-- Create model Question
+--
+CREATE TABLE &quot;polls_question&quot; (
+    &quot;id&quot; serial NOT NULL PRIMARY KEY,
+    &quot;question_text&quot; varchar(200) NOT NULL,
+    &quot;pub_date&quot; timestamp with time zone NOT NULL
+);
+--
+-- Add field question to choice
+--
+ALTER TABLE &quot;polls_choice&quot; ADD COLUMN &quot;question_id&quot; integer NOT NULL;
+ALTER TABLE &quot;polls_choice&quot; ALTER COLUMN &quot;question_id&quot; DROP DEFAULT;
+CREATE INDEX &quot;polls_choice_7aa0f6ee&quot; ON &quot;polls_choice&quot; (&quot;question_id&quot;);
+ALTER TABLE &quot;polls_choice&quot;
+  ADD CONSTRAINT &quot;polls_choice_question_id_246c99a640fbbd72_fk_polls_question_id&quot;
+    FOREIGN KEY (&quot;question_id&quot;)
+    REFERENCES &quot;polls_question&quot; (&quot;id&quot;)
+    DEFERRABLE INITIALLY DEFERRED;
+
+COMMIT;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再次运行 &lt;strong&gt;migrate&lt;/strong&gt; 命令，在数据库里创建新定义的模型的数据表&lt;/p&gt;
+
+&lt;p&gt;这个 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/django-admin/#django-admin-migrate&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;migrate&lt;/code&gt;&lt;/a&gt; 命令选中所有还没有执行过的迁移（Django 通过在数据库中创建一个特殊的表 &lt;code class=&quot;highlighter-rouge&quot;&gt;django_migrations&lt;/code&gt; 来跟踪执行过哪些迁移）并应用在数据库上 - 也就是将你对模型的更改同步到数据库结构上。&lt;/p&gt;
+
+&lt;p&gt;迁移是非常强大的功能，它能让你在开发过程中持续的改变数据库结构而不需要重新删除和创建表 - 它专注于使数据库平滑升级而不会丢失数据。我们会在后面的教程中更加深入的学习这部分内容，现在，你只需要记住，改变模型需要这三步：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;编辑 &lt;code class=&quot;highlighter-rouge&quot;&gt;models.py&lt;/code&gt; 文件，改变模型。&lt;/li&gt;
+  &lt;li&gt;运行 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/django-admin/#django-admin-makemigrations&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py makemigrations&lt;/code&gt;&lt;/a&gt; 为模型的改变生成迁移文件。&lt;/li&gt;
+  &lt;li&gt;运行 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/django-admin/#django-admin-migrate&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py migrate&lt;/code&gt;&lt;/a&gt; 来应用数据库迁移。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;数据库迁移被分解成生成和应用两个命令是为了让你能够在代码控制系统上提交迁移数据并使其能在多个应用里使用；这不仅仅会让开发更加简单，也给别的开发者和生产环境中的使用带来方便。&lt;/p&gt;
+
+&lt;h3 id=&quot;5-使用-django-shell&quot;&gt;5. 使用 Django Shell&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;python3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;manage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shell&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;6-创建管理员账号&quot;&gt;6. 创建管理员账号&lt;/h3&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py createsuperuser
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;7-路由&quot;&gt;7. 路由&lt;/h3&gt;
+
+&lt;p&gt;在配置项中 &lt;strong&gt;ROOT_URLCONF&lt;/strong&gt;中设置根路由&lt;/p&gt;
+
+&lt;p&gt;例如 &lt;code class=&quot;highlighter-rouge&quot;&gt;ROOT_URLCONF=mysite.urls&lt;/code&gt;Django将载入mysite.urls模块，然后寻找名为&lt;code class=&quot;highlighter-rouge&quot;&gt;urlpatterns&lt;/code&gt;的变量并且按序匹配正则表达项。&lt;/p&gt;
+
+&lt;h3 id=&quot;8-个人的一些总结&quot;&gt;8. 个人的一些总结&lt;/h3&gt;
+
+&lt;p&gt;​	虽然之前毫无接触过Django（只是简单的使用过flask），而且公司的代码是用的Django rest framework，不过通过阅读代码和官方的教程，目前有以下的理解。&lt;/p&gt;
+
+&lt;p&gt;​	首先后台启动靠的就是一个setting文件，里面有各种关键的配置，比如&lt;code class=&quot;highlighter-rouge&quot;&gt;ALLOWED_HOSTS&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;INSTALLED_APPS&lt;/code&gt;等等，其中&lt;code class=&quot;highlighter-rouge&quot;&gt;ROOT_URLCONF&lt;/code&gt;定义了根路由节点，&lt;code class=&quot;highlighter-rouge&quot;&gt;TEMPLATES&lt;/code&gt;定义了模板导入的方式，&lt;code class=&quot;highlighter-rouge&quot;&gt;DATABASES&lt;/code&gt;定义了数据库的类型，其实还有好多可以配置啦。&lt;/p&gt;
+
+&lt;p&gt;​	然后就是路由，路由中的&lt;code class=&quot;highlighter-rouge&quot;&gt;url&lt;/code&gt;匹配还蛮好理解的，&lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt;是一个蛮有趣的设定，满足的django即插即用又各个应用组成的理念。通过&lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt;可以截断前面匹配的url，然后将剩下的部分导入子路由，&lt;/p&gt;
+
+&lt;p&gt;​	匹配urlpattern之后就是views了，在views中定义各种类和函数，就可以在访问这个api的时候返回模板、html、httpresponse…模板是一个蛮强的东西，不过目前项目的代码没有用到，所以也没有太深入理解。&lt;/p&gt;
+
+&lt;p&gt;​	另一个比较重要的是模型的构建，Django可以直接生成要使用的数据库，并且使用&lt;code class=&quot;highlighter-rouge&quot;&gt;migrate&lt;/code&gt;可以很便捷的进行修改和增删。创建数据库的步骤大概如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;首先在model文件中定义我们需要的表&lt;/li&gt;
+  &lt;li&gt;运行 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/django-admin/#django-admin-makemigrations&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py makemigrations&lt;/code&gt;&lt;/a&gt; 为模型的改变生成迁移文件&lt;/li&gt;
+  &lt;li&gt;运行 &lt;a href=&quot;https://docs.djangoproject.com/zh-hans/2.1/ref/django-admin/#django-admin-migrate&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py migrate&lt;/code&gt;&lt;/a&gt; 来应用数据库迁移&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;完成这3步之后会在migrations文件夹中生成模型定义，也是py文件而且蛮容易阅读的。&lt;/p&gt;</content><author><name>Clooney</name><email>gkluni317@gmail.com</email></author><summary type="html">Django 学习笔记</summary></entry></feed>

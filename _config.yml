@@ -37,6 +37,8 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
 
+future: true
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -78,6 +80,8 @@ jekyll-archives:
   enabled:
     - categories
     - tags
+    - collections
+
   layouts:
     category: archive-taxonomy
     tag: archive-taxonomy
@@ -165,5 +169,10 @@ collections:
     permalink: /:collection/:path/
   swsad:
     output: true
+    permalink: /:collection/:path/
+
+  Django:
+    output: true
+    foo: bar
     permalink: /:collection/:path/
 
