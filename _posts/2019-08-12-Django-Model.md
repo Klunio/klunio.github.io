@@ -3,10 +3,10 @@ layout: single
 author_profile: false
 title:  "MODEL IN DJANGO"
 categories: note Django
-
+collection: Django
 ---
 
-#Model in Django
+##Model in Django
 
 >[refer](http://www.liujiangblog.com/course/django/100)
 
