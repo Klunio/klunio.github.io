@@ -3,6 +3,7 @@ layout: single
 author_profile: false
 title:  "MODEL IN DJANGO"
 categories: note Django
+date:   2019-08-12 14:55:40 +0800
 collection: Django
 ---
 
