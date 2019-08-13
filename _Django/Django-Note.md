@@ -1,13 +1,18 @@
 ---
 layout: single
-author_profile: false
+author_profile: true
 title:  "DJANGO LEARNING NOTE"
 date:   2019-08-09 14:55:40 +0800
 categories: note Django
-collection:
+collection: Django
+classes: wide
+toc: true
+toc_label: "文章结构"
+toc_icon: "align-left"
+
 ---
 
-## Django 学习笔记
+
 
 ### 1.安装
 

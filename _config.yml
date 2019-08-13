@@ -159,6 +159,16 @@ defaults:
       layout: single
       author_profile: false
       share: true
+  - scope:
+      path: ""
+      type: Django
+    values:
+      layout: single
+      author_profile: true
+      classes: wide
+      toc: true
+      toc_label: "文章结构"
+      toc_icon: "align-left"
 
 
 
@@ -176,4 +186,5 @@ collections:
     output: true
     foo: bar
     permalink: /:collection/:path/
+    layout: page
 

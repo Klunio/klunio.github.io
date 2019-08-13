@@ -1,13 +1,15 @@
 ---
 layout: single
-author_profile: false
-title:  "MODEL IN DJANGO"
+author_profile: true
+title:  "Model in Django"
 categories: note Django
 date:   2019-08-12 14:55:40 +0800
 collection: Django
+classes: wide
+toc: true
+toc_label: "文章结构"
+toc_icon: "align-left"
 ---
-
-##Model in Django
 
 >[refer](http://www.liujiangblog.com/course/django/100)
 
@@ -186,7 +188,7 @@ place_ptr = models.OneToOneField(
 
 代理模型就是为此而生的。你可以创建、删除、更新代理模型的实例，并且所有的数据都可以像使用原始模型（非代理类模型）一样被保存。**不同之处在于你可以在代理模型中改变默认的排序方式和默认的manager管理器等等**，而不会对原始模型产生影响。
 
-##### **声明一个代理模型只需要将Meta中proxy的值设为True。**
+ **声明一个代理模型只需要将Meta中proxy的值设为True。**
 
 
 

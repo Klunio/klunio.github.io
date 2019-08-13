@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>文章分类 - Clooney’s site</title>
-<meta name="description" content="nothing to describ">
+<!-- begin _includes/seo.html --><title>Index - Clooney&#8217;s site</title>
+<meta name="description" content="  Django Note  Django Model">
 
 
   <meta name="author" content="Clooney">
@@ -19,8 +19,11 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="Clooney's site">
-<meta property="og:title" content="文章分类">
-<meta property="og:url" content="http://localhost:4000/categories/">
+<meta property="og:title" content="Index">
+<meta property="og:url" content="http://localhost:4000/Django/Index/">
+
+
+  <meta property="og:description" content="  Django Note  Django Model">
 
 
 
@@ -33,8 +36,7 @@
 
 
 
-
-<link rel="canonical" href="http://localhost:4000/categories/">
+<link rel="canonical" href="http://localhost:4000/Django/Index/">
 
 
 
@@ -95,7 +97,7 @@
 
   </head>
 
-  <body class="layout--categories">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -172,7 +174,17 @@
         <span class="sep">/</span>
       
       
-        <li class="current">文章分类</li>
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/django" itemprop="item"><span itemprop="name">Django</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Index</li>
       
     
   </ol>
@@ -310,24 +322,61 @@
   </div>
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Index">
+    <meta itemprop="description" content="  Django Note  Django Model">
     
-      <h1 id="page-title" class="page__title">文章分类</h1>
-    
     
 
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Index
+</h1>
+          
+        </header>
+      
 
-
-
-
-<ul class="taxonomy__index">
-  
+      <section class="page__content" itemprop="text">
+        
+        <ul>
+  <li><a href="../Django-Note">Django Note</a></li>
+  <li><a href="../Django-Model">Django Model</a></li>
 </ul>
 
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
 
 
-  </div>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/Django/Django-Model/" class="pagination--pager" title="Model in Django
+">向前</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">向后</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
 </div>
+
     </div>
 
     
