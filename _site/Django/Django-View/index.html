@@ -1,0 +1,863 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>View in Django - Clooney’s site</title>
+<meta name="description" content="  URL是Web服务的入口，用户通过浏览器发送过来的任何请求，都是发送到一个指定的URL地址，然后被响应。  在Django项目中编写路由，就是向外暴露我们接收哪些URL的请求，除此之外的任何URL都不被处理，也没有返回。通俗地理解，不恰当的形容，URL路由是你的Web服务对外暴露的API。  Django奉行DRY主义，提倡使用简洁、优雅的URL，没有.php或.cgi这种后缀，更不会单独使用0、2097、1-1-1928、00这样无意义的东西，让你随心所欲设计你的URL，不受框架束缚。">
+
+
+  <meta name="author" content="Clooney">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Clooney's site">
+<meta property="og:title" content="View in Django">
+<meta property="og:url" content="http://localhost:4000/Django/Django-View/">
+
+
+  <meta property="og:description" content="  URL是Web服务的入口，用户通过浏览器发送过来的任何请求，都是发送到一个指定的URL地址，然后被响应。  在Django项目中编写路由，就是向外暴露我们接收哪些URL的请求，除此之外的任何URL都不被处理，也没有返回。通俗地理解，不恰当的形容，URL路由是你的Web服务对外暴露的API。  Django奉行DRY主义，提倡使用简洁、优雅的URL，没有.php或.cgi这种后缀，更不会单独使用0、2097、1-1-1928、00这样无意义的东西，让你随心所欲设计你的URL，不受框架束缚。">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-08-13T02:52:40-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/Django/Django-View/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Clooney",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Clooney's site Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Clooney's site
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/" >Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/" >Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://mmistakes.github.io/minimal-mistakes/about/" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/Django/" >Django</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">切换菜单</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">首页</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/django" itemprop="item"><span itemprop="name">Django</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">View in Django</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/bio-photo.jpeg" alt="Clooney" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Clooney</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>I’m doing my homework here!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">关注</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Guangzhou, China</span>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:gkluni317@gmail.com">
+            <meta itemprop="email" content="gkluni317@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> 电子邮箱
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://instagram.com/yyunquan" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/Klunio" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.weibo.com/xxx" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-weibo" aria-hidden="true"></i> Weibo
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="View in Django">
+    <meta itemprop="description" content="  URL是Web服务的入口，用户通过浏览器发送过来的任何请求，都是发送到一个指定的URL地址，然后被响应。  在Django项目中编写路由，就是向外暴露我们接收哪些URL的请求，除此之外的任何URL都不被处理，也没有返回。通俗地理解，不恰当的形容，URL路由是你的Web服务对外暴露的API。  Django奉行DRY主义，提倡使用简洁、优雅的URL，没有.php或.cgi这种后缀，更不会单独使用0、2097、1-1-1928、00这样无意义的东西，让你随心所欲设计你的URL，不受框架束缚。">
+    <meta itemprop="datePublished" content="August 13, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">View in Django
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 文章结构</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#一概述">一、概述</a></li>
+  <li><a href="#二django-如何处理请求">二、Django 如何处理请求</a></li>
+  <li><a href="#三简单示例">三、简单示例</a></li>
+  <li><a href="#四path转换器">四、path转换器</a></li>
+  <li><a href="#五路由转发">五、路由转发</a></li>
+  <li><a href="#六传递参数">六、传递参数</a></li>
+  <li><a href="#七django内置的快捷方法">七、Django内置的快捷方法</a>
+    <ul>
+      <li><a href="#render">render</a></li>
+      <li><a href="#render_to_response">render_to_response()</a></li>
+      <li><a href="#redirect">redirect()</a></li>
+      <li><a href="#get_object_or_404">get_object_or_404()</a></li>
+      <li><a href="#5-get_list_or_404">5. get_list_or_404()</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <blockquote>
+  <p>URL是Web服务的入口，用户通过浏览器发送过来的任何请求，都是发送到一个指定的URL地址，然后被响应。</p>
+
+  <p>在Django项目中编写路由，就是向外暴露我们接收哪些URL的请求，除此之外的任何URL都不被处理，也没有返回。通俗地理解，不恰当的形容，URL路由是你的Web服务对外暴露的API。</p>
+
+  <p>Django奉行DRY主义，提倡使用简洁、优雅的URL，没有<code class="highlighter-rouge">.php</code>或<code class="highlighter-rouge">.cgi</code>这种后缀，更不会单独使用0、2097、1-1-1928、00这样无意义的东西，让你随心所欲设计你的URL，不受框架束缚。</p>
+</blockquote>
+
+<h2 id="一概述">一、概述</h2>
+
+<p>URL路由在Django项目中的体现就是<code class="highlighter-rouge">urls.py</code>文件，这个文件可以有很多个，但绝对不会在同一目录下。实际上Django提倡项目有个根<code class="highlighter-rouge">urls.py</code>，各app下分别有自己的一个<code class="highlighter-rouge">urls.py</code>，既集中又分治，是一种解耦的模式。</p>
+
+<p>随便新建一个Django项目，默认会自动为我们创建一个<code class="highlighter-rouge">/project_name/urls.py</code>文件，并且自动包含下面的内容，这就是项目的根URL：</p>
+
+<h2 id="二django-如何处理请求">二、Django 如何处理请求</h2>
+
+<p>当用户请求一个页面时，Django根据下面的逻辑执行操作：</p>
+
+<ol>
+  <li><strong>决定要使用的根URLconf模块。</strong>通常，这是<code class="highlighter-rouge">ROOT_URLCONF</code>设置的值，但是如果传入的HttpRequest对象具有urlconf属性（由中间件设置），则其值将被用于代替<code class="highlighter-rouge">ROOT_URLCONF</code>设置。通俗的讲，就是你可以自定义项目入口url是哪个文件！</li>
+  <li><strong>加载该模块并寻找可用的urlpatterns。</strong> 它是<code class="highlighter-rouge">django.urls.path()</code>或者<code class="highlighter-rouge">django.urls.re_path()</code>实例的一个列表。</li>
+  <li><strong>依次匹配每个URL模式，在与请求的URL相匹配的第一个模式停下来</strong>。也就是说，url匹配是从上往下的短路操作，所以url在列表中的位置非常关键。</li>
+  <li>导入并调用匹配行中给定的视图，该视图是一个简单的Python函数（被称为视图函数）,或基于类的视图。 视图将获得如下参数:
+    <ol>
+      <li>一个HttpRequest 实例。</li>
+      <li>如果匹配的表达式返回了未命名的组，那么匹配的内容将作为位置参数提供给视图。</li>
+      <li>关键字参数由表达式匹配的命名组组成，但是可以被<code class="highlighter-rouge">django.urls.path()</code>的可选参数kwargs覆盖。</li>
+    </ol>
+  </li>
+  <li>如果没有匹配到任何表达式，或者过程中抛出异常，将调用一个适当的错误处理视图。</li>
+</ol>
+
+<h2 id="三简单示例">三、简单示例</h2>
+
+<p>先看一个例子：</p>
+
+<pre><code class="language-pytho">from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('articles/2003/', views.special_case_2003),
+    path('articles/&lt;int:year&gt;/', views.year_archive),
+    path('articles/&lt;int:year&gt;/&lt;int:month&gt;/', views.month_archive),
+    path('articles/&lt;int:year&gt;/&lt;int:month&gt;/&lt;slug:slug&gt;/', views.article_detail),
+]
+</code></pre>
+
+<p>注意：</p>
+
+<ol>
+  <li>要捕获一段url中的值，需要使用尖括号，而不是之前的圆括号；</li>
+  <li>可以转换捕获到的值为指定类型，比如例子中的int。默认情况下，捕获到的结果保存为字符串类型，不包含<code class="highlighter-rouge">/</code>这个特殊字符；</li>
+  <li>匹配模式的最开头不需要添加<code class="highlighter-rouge">/</code>，因为默认情况下，每个url都带一个最前面的<code class="highlighter-rouge">/</code>，既然大家都有的部分，就不用浪费时间特别写一个了。</li>
+</ol>
+
+<p>匹配例子：</p>
+
+<ul>
+  <li>/articles/2005/03/ 将匹配第三条，并调用views.month_archive(request, year=2005, month=3)；</li>
+  <li>/articles/2003/匹配第一条，并调用views.special_case_2003(request)；</li>
+  <li>/articles/2003将一条都匹配不上，因为它最后少了一个斜杠，而列表中的所有模式中都以斜杠结尾；</li>
+  <li>/articles/2003/03/building-a-django-site/ 将匹配最后一个，并调用views.article_detail(request, year=2003, month=3, slug=”building-a-django-site”</li>
+</ul>
+
+<p>每当urls.py文件被第一次加载的时候，urlpatterns里的表达式们都将被预先编译，这会大大提高系统处理路由的速度。</p>
+
+<h2 id="四path转换器">四、path转换器</h2>
+
+<p>默认情况下，Django内置下面的路径转换器：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">str</code>：匹配任何非空字符串，但不含斜杠<code class="highlighter-rouge">/</code>，如果你没有专门指定转换器，那么这个是默认使用的；</li>
+  <li><code class="highlighter-rouge">int</code>：匹配0和正整数，返回一个int类型</li>
+  <li><code class="highlighter-rouge">slug</code>：可理解为注释、后缀、附属等概念，是url拖在最后的一部分解释性字符。该转换器匹配任何ASCII字符以及连接符和下划线，比如<code class="highlighter-rouge">building-your-1st-django-site</code>；</li>
+  <li><code class="highlighter-rouge">uuid</code>：匹配一个uuid格式的对象。为了防止冲突，规定必须使用破折号，所有字母必须小写，例如<code class="highlighter-rouge">075194d3-6885-417e-a8a8-6c931e272f00</code>。返回一个UUID对象；</li>
+  <li><code class="highlighter-rouge">path</code>：匹配任何非空字符串，重点是可以包含路径分隔符’/‘。这个转换器可以帮助你匹配整个url而不是一段一段的url字符串。<strong>要区分path转换器和path()方法</strong>。</li>
+</ul>
+
+<h2 id="五路由转发">五、路由转发</h2>
+
+<p>通常，我们会在每个app里，各自创建一个urls.py路由模块，然后从根路由出发，将app所属的url请求，全部转发到相应的urls.py模块中。</p>
+
+<p>例如，下面是Django网站本身的URLconf节选。 它包含许多其它URLconf：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c"># ... 省略...</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'community/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'aggregator.urls'</span><span class="p">)),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'contact/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'contact.urls'</span><span class="p">)),</span>
+    <span class="c"># ... 省略 ...</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>路由转发使用的是include()方法，需要提前导入，它的参数是转发目的地路径的字符串，路径以圆点分割。</p>
+
+<p>每当Django 遇到<code class="highlighter-rouge">include()</code>时，它会去掉URL中匹配的部分并将剩下的字符串发送给include的URLconf做进一步处理，也就是转发到二级路由去。</p>
+
+<p>另外一种转发其它URL模式的方式是使用一个path()实例的列表。 例如，下面的URLconf：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+
+<span class="kn">from</span> <span class="nn">apps.main</span> <span class="kn">import</span> <span class="n">views</span> <span class="k">as</span> <span class="n">main_views</span>
+<span class="kn">from</span> <span class="nn">credit</span> <span class="kn">import</span> <span class="n">views</span> <span class="k">as</span> <span class="n">credit_views</span>
+
+<span class="n">extra_patterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'reports/'</span><span class="p">,</span> <span class="n">credit_views</span><span class="o">.</span><span class="n">report</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'reports/&lt;int:id&gt;/'</span><span class="p">,</span> <span class="n">credit_views</span><span class="o">.</span><span class="n">report</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'charge/'</span><span class="p">,</span> <span class="n">credit_views</span><span class="o">.</span><span class="n">charge</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">main_views</span><span class="o">.</span><span class="n">homepage</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'help/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'apps.help.urls'</span><span class="p">)),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'credit/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">extra_patterns</span><span class="p">)),</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>在此示例中，<code class="highlighter-rouge">/credit/reports/</code>URL将由<code class="highlighter-rouge">credit_views.report()</code>视图处理。这种做法，相当于把二级路由模块内的代码写到根路由模块里一起了，不是很推荐。</p>
+
+<p>再看下面的URLconf：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'&lt;page_slug&gt;-&lt;page_id&gt;/history/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">history</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'&lt;page_slug&gt;-&lt;page_id&gt;/edit/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">edit</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'&lt;page_slug&gt;-&lt;page_id&gt;/discuss/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">discuss</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'&lt;page_slug&gt;-&lt;page_id&gt;/permissions/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">permissions</span><span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>上面的路由写得不好，我们可以改进它，只需要声明共同的路径前缀一次，并将后面的部分分组转发：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'&lt;page_slug&gt;-&lt;page_id&gt;/'</span><span class="p">,</span> <span class="n">include</span><span class="p">([</span>
+        <span class="n">path</span><span class="p">(</span><span class="s">'history/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">history</span><span class="p">),</span>
+        <span class="n">path</span><span class="p">(</span><span class="s">'edit/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">edit</span><span class="p">),</span>
+        <span class="n">path</span><span class="p">(</span><span class="s">'discuss/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">discuss</span><span class="p">),</span>
+        <span class="n">path</span><span class="p">(</span><span class="s">'permissions/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">permissions</span><span class="p">),</span>
+    <span class="p">])),</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>这样就优雅多了，也清爽多了，但前提是你要理解这种做法。</p>
+
+<h2 id="六传递参数">六、传递参数</h2>
+
+<p>目的地URLconf会收到来自父URLconf捕获的所有参数，看下面的例子：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># In settings/urls/main.py</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'&lt;username&gt;/blog/'</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">'foo.urls.blog'</span><span class="p">)),</span>
+<span class="p">]</span>
+
+<span class="c"># In foo/urls/blog.py</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">blog</span><span class="o">.</span><span class="n">index</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'archive/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">blog</span><span class="o">.</span><span class="n">archive</span><span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>在上面的例子中，捕获的”username”变量将被传递给include()指向的URLconf，再进一步传递给对应的视图。</p>
+
+<p>URLconfs具有一个钩子（hook），允许你传递一个Python字典作为额外的关键字参数给视图函数，像下面这样：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s">'blog/&lt;int:year&gt;/'</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">year_archive</span><span class="p">,</span> <span class="p">{</span><span class="s">'foo'</span><span class="p">:</span> <span class="s">'bar'</span><span class="p">}),</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>在上面的例子中，对于<code class="highlighter-rouge">/blog/2005/</code>请求，Django将调<code class="highlighter-rouge">用views.year_archive(request, year='2005', foo='bar')</code>。理论上，你可以在这个字典里传递任何你想要的传递的东西。但是要注意，URL模式捕获的命名关键字参数和在字典中传递的额外参数有可能具有相同的名称，这会发生冲突，要避免。</p>
+
+<h2 id="七django内置的快捷方法">七、Django内置的快捷方法</h2>
+
+<p>Django在<code class="highlighter-rouge">django.shortcuts</code>模块中，为我们提供了很多快捷方便的类和方法，它们都很重要，使用频率很高。</p>
+
+<h3 id="render">render</h3>
+
+<p>render(request, template_name, context=None, content_type=None, status=None, using=None)[source]</p>
+
+<p>结合一个给定的模板和一个给定的上下文字典，返回一个渲染后的HttpResponse对象。</p>
+
+<p><strong>必需参数：</strong></p>
+
+<ul>
+  <li><strong>request</strong>：视图函数处理的当前请求，封装了请求头的所有数据，其实就是视图参数request。</li>
+  <li><strong>template_name</strong>：要使用的模板的完整名称或者模板名称的列表。如果是一个列表，将使用其中能够查找到的第一个模板。</li>
+</ul>
+
+<p><strong>可选参数：</strong></p>
+
+<ul>
+  <li><strong>context</strong>：添加到模板上下文的一个数据字典。默认是一个空字典。可以将认可需要提供给模板的数据以字典的格式添加进去。这里有个小技巧，使用Python内置的locals()方法，可以方便的将函数作用于内的所有变量一次性添加。</li>
+  <li><strong>content_type</strong>：用于生成的文档的MIME类型。 默认为<code class="highlighter-rouge">DEFAULT_CONTENT_TYPE</code>设置的值。</li>
+  <li><strong>status</strong>：响应的状态代码。 默认为200。</li>
+  <li><strong>using</strong>：用于加载模板使用的模板引擎的NAME。</li>
+</ul>
+
+<p><strong>范例：</strong></p>
+
+<p>下面的例子将渲染模板<code class="highlighter-rouge">myapp/index.html</code>，MIME类型为<code class="highlighter-rouge">application/xhtml+xml</code>：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c"># View code here...</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">'myapp/index.html'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s">'foo'</span><span class="p">:</span> <span class="s">'bar'</span><span class="p">,</span>
+    <span class="p">},</span> <span class="n">content_type</span><span class="o">=</span><span class="s">'application/xhtml+xml'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>这个示例等同于：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">loader</span>
+
+<span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c"># View code here...</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s">'myapp/index.html'</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="s">'foo'</span><span class="p">:</span> <span class="s">'bar'</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">request</span><span class="p">),</span> <span class="n">content_type</span><span class="o">=</span><span class="s">'application/xhtml+xml'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="render_to_response">render_to_response()</h3>
+
+<p>render_to_response(template_name, context=None, content_type=None, status=None, using=None)[source]</p>
+
+<p>此功能在引入render()之前进行，不推荐，以后可能会被弃用。</p>
+
+<h3 id="redirect">redirect()</h3>
+
+<p>redirect(to, permanent=False, <em>args,</em> *kwargs)[source]</p>
+
+<p>根据传递进来的url参数，返回HttpResponseRedirect。</p>
+
+<p>参数to可以是：</p>
+
+<ul>
+  <li>一个模型：将调用模型的<code class="highlighter-rouge">get_absolute_url()</code>函数，反向解析出目的url；</li>
+  <li>视图名称：可能带有参数：reverse()将用于反向解析url；</li>
+  <li>一个绝对的或相对的URL：将原封不动的作为重定向的目标位置。</li>
+</ul>
+
+<p>默认情况下是临时重定向，如果设置<code class="highlighter-rouge">permanent=True</code>将永久重定向。</p>
+
+<p><strong>范例：</strong></p>
+
+<p>1.调用对象的<code class="highlighter-rouge">get_absolute_url()</code>方法来重定向URL：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">redirect</span>
+
+<span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="nb">object</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>2.传递视图名，使用reverse()方法反向解析url：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">'some-view-name'</span><span class="p">,</span> <span class="n">foo</span><span class="o">=</span><span class="s">'bar'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>重定向到硬编码的URL：</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">'/some/url/'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol>
+  <li>重定向到一个完整的URL：</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s">'https://example.com/'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>所有上述形式都接受permanent参数；如果设置为True，将返回永久重定向：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="nb">object</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">permanent</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="get_object_or_404">get_object_or_404()</h3>
+
+<p>get_object_or_404(klass, <em>args,</em> *kwargs)[source]</p>
+
+<p>这个方法，非常有用，请一定熟记。常用于查询某个对象，找到了则进行下一步处理，如果未找到则给用户返回404页面。</p>
+
+<p>在后台，Django其实是调用了模型管理器的get()方法，只会返回一个对象。不同的是，如果get()发生异常，会引发Http404异常，从而返回404页面，而不是模型的DoesNotExist异常。</p>
+
+<p><strong>必需参数</strong>：</p>
+
+<ul>
+  <li><strong>class</strong>：要获取的对象的Model类名或者Queryset等；</li>
+  <li><code class="highlighter-rouge">**kwargs</code>:查询的参数，格式应该可以被get()接受。</li>
+</ul>
+
+<p><strong>范例：</strong></p>
+
+<p>1.从MyModel中使用主键1来获取对象：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span>
+
+<span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">my_object</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">MyModel</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>这个示例等同于：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">Http404</span>
+
+<span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">my_object</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">Http404</span><span class="p">(</span><span class="s">"No MyModel matches the given query."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>2.除了传递Model名称，还可以传递一个QuerySet实例：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">queryset</span> <span class="o">=</span> <span class="n">Book</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">title__startswith</span><span class="o">=</span><span class="s">'M'</span><span class="p">)</span>
+<span class="n">get_object_or_404</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>上面的示例不够简洁，因为它等同于：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Book</span><span class="p">,</span> <span class="n">title__startswith</span><span class="o">=</span><span class="s">'M'</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>但是如果你的queryset来自其它地方，它就会很有用了。</p>
+
+<p>3.还可以使用Manager。 如果你自定义了管理器，这将很有用：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Book</span><span class="o">.</span><span class="n">dahl_objects</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Matilda'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>4.还可以使用related managers：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">author</span> <span class="o">=</span> <span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Roald Dahl'</span><span class="p">)</span>
+<span class="n">get_object_or_404</span><span class="p">(</span><span class="n">author</span><span class="o">.</span><span class="n">book_set</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Matilda'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>与get()一样，如果找到多个对象将引发一个MultipleObjectsReturned异常。</p>
+
+<h3 id="5-get_list_or_404">5. get_list_or_404()</h3>
+
+<p>get_list_or_404(klass, <em>args,</em> *kwargs)[source]</p>
+
+<p>这其实就是<code class="highlighter-rouge">get_object_or_404</code>多值获取版本。</p>
+
+<p>在后台，返回一个给定模型管理器上filter()的结果，并将结果映射为一个列表，如果结果为空则弹出Http404异常。</p>
+
+<p><strong>必需参数</strong>：</p>
+
+<ul>
+  <li><strong>klass</strong>：获取该列表的一个Model、Manager或QuerySet实例。</li>
+  <li><code class="highlighter-rouge">**kwargs</code>：查询的参数，格式应该可以被filter()接受。</li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 分类: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/django" class="page__taxonomy-item" rel="tag">Django</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/note" class="page__taxonomy-item" rel="tag">note</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time datetime="2019-08-13T02:52:40-04:00">August 13, 2019</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/Django/Django-Model/" class="pagination--pager" title="Model in Django
+">向前</a>
+    
+    
+      <a href="/Django/Django-Query/" class="pagination--pager" title="Query in Django
+">向后</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="输入您要搜索的关键词..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>关注:</strong></li>
+    
+
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Clooney. 技术来自于 <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

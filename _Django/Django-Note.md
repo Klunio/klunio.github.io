@@ -84,8 +84,6 @@ mysite/
 $ python manage.py migrate
 ```
 
-### 
-
 ### 4. 创建模型
 
 在model.py文件中编写我们需要的类，例如：
