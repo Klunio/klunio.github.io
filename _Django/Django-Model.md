@@ -9,6 +9,7 @@ classes: wide
 toc: true
 toc_label: "文章结构"
 toc_icon: "align-left"
+abstract: "xxx"
 ---
 
 >[refer](http://www.liujiangblog.com/course/django/100)

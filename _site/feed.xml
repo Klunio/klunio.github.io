@@ -1,1 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-13T03:36:19-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Clooney’s site</title><subtitle>nothing to describ</subtitle><author><name>Clooney</name><email>gkluni317@gmail.com</email></author></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-14T03:38:38-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Clooney’s site</title><subtitle>nothing to describ</subtitle><author><name>Clooney</name><email>gkluni317@gmail.com</email></author><entry><title type="html">Spark Note</title><link href="http://localhost:4000/note/2019/08/14/PySpark%E5%88%9D%E5%AD%A6.html" rel="alternate" type="text/html" title="Spark Note" /><published>2019-08-14T02:00:40-04:00</published><updated>2019-08-14T02:00:40-04:00</updated><id>http://localhost:4000/note/2019/08/14/PySpark%E5%88%9D%E5%AD%A6</id><content type="html" xml:base="http://localhost:4000/note/2019/08/14/PySpark%E5%88%9D%E5%AD%A6.html">&lt;p&gt;Apache Spark 是目前处理和使用大数据的最广泛使用的框架之一，Python是数据分析、机器学习等最广泛使用的编程语言之一。为了用Spark支持Python，Apache Spark社区发布了一个工具PySpark。使用PySpark，您也可以使用Python编程语言处理RDD。正是由于一个名为Py4j的库，他们才能实现这一目标。&lt;/p&gt;
+
+&lt;p&gt;Apache Spark是Apache Software Foundation开发的用于实时处理的开源集群计算框架。 Spark提供了一个接口，用于编程具有隐式数据并行和容错功能的集群。&lt;img src=&quot;https://www.itcodemonkey.com/data/upload/portal/20180630/1530345646429785.png&quot; alt=&quot;1530345646429785&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;sparkcontent&quot;&gt;SparkContent&lt;/h3&gt;
+
+&lt;p&gt;SparkContext是任何spark功能的入口点。当我们运行任何Spark应用程序时，会启动一个驱动程序，它具有main函数，并且此处启动了SparkContext。然后，驱动程序在工作节点上的执行程序内运行操作。&lt;/p&gt;
+
+&lt;p&gt;SparkContext使用Py4J启动JVM并创建JavaSparkContext。默认情况下，PySpark将SparkContext作为’sc’提供，因此创建新的SparkContext将不起作用。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1531909-017acff244e3caf2.png?imageMogr2/auto-orient/&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;以下代码块包含PySpark类的详细信息以及SparkContext可以采用的参数。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;pyspark&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SparkContext&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;master&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;appName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;sparkHome&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;pyFiles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;batchSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PickleSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;conf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;gateway&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;jsc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;profiler_cls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;pyspark&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;profiler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BasicProfiler&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;以下是SparkContext的参数具体含义：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Master&lt;/code&gt;- 它是连接到的集群的URL。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;appName&lt;/code&gt;- 您的工作名称。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sparkHome&lt;/code&gt; - Spark安装目录。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pyFiles&lt;/code&gt; - 要发送到集群并添加到PYTHONPATH的.zip或.py文件。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;environment&lt;/code&gt; - 工作节点环境变量。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;batchSize&lt;/code&gt; - 表示为单个Java对象的Python对象的数量。设置1以禁用批处理，设置0以根据对象大小自动选择批处理大小，或设置为-1以使用无限批处理大小。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;serializer&lt;/code&gt;- RDD序列化器。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Conf&lt;/code&gt; - L {SparkConf}的一个对象，用于设置所有Spark属性。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gateway&lt;/code&gt;  - 使用现有网关和JVM，否则初始化新JVM。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;JSC&lt;/code&gt; - JavaSparkContext实例。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;profiler_cls&lt;/code&gt; - 用于进行性能分析的一类自定义Profiler（默认为pyspark.profiler.BasicProfiler）。
+在上述参数中，主要使用master和appname。任何PySpark程序的会使用以下两行：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from pyspark import SparkContext
+sc = SparkContext(&quot;local&quot;, &quot;First App&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;rdd&quot;&gt;RDD&lt;/h3&gt;
+
+&lt;p&gt;在介绍PySpark处理RDD操作之前，我们先了解下RDD的基本概念：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;RDD代表Resilient Distributed Dataset，它们是在多个节点上运行和操作以在集群上进行并行处理的元素。RDD是不可变元素，这意味着一旦创建了RDD，就无法对其进行更改。RDD也具有容错能力，因此在发生任何故障时，它们会自动恢复。您可以对这些RDD应用多个操作来完成某项任务。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;要对这些RDD进行操作，有两种方法 :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transformation&lt;/li&gt;
+  &lt;li&gt;Action&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;转换 - 这些操作应用于RDD以创建新的RDD。Filter，groupBy和map是转换的示例。&lt;/p&gt;
+
+&lt;p&gt;操作 - 这些是应用于RDD的操作，它指示Spark执行计算并将结果发送回驱动程序。&lt;/p&gt;
+
+&lt;p&gt;要在PySpark中应用任何操作，我们首先需要创建一个PySpark RDD。以下代码块具有PySpark RDD类的详细信息 :&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;pyspark&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RDD&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;jrdd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+   &lt;span class=&quot;n&quot;&gt;jrdd_deserializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AutoBatchedSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PickleSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;接下来让我们看看如何使用PySpark运行一些基本操作,用以下代码创建存储一组单词的RDD（&lt;code class=&quot;highlighter-rouge&quot;&gt;spark使用parallelize方法创建RDD&lt;/code&gt;），我们现在将对单词进行一些操作。&lt;/p&gt;
+
+&lt;h3 id=&quot;pyspark-sql&quot;&gt;PySpark SQL&lt;/h3&gt;
+
+&lt;p&gt;PySpark的语法是从左到右串行的，便于阅读、理解和修正；SQL的语法是从内到外嵌套的，不方便维护；&lt;/p&gt;
+
+&lt;p&gt;PySpark继承Python优美、简洁的语法，同样的效果，代码行数可能只有SQL的十分之一；&lt;/p&gt;
+
+&lt;p&gt;Spark分转化操作和行动操作，只在行动操作时才真正计算，所以可以减少不必要的计算时间；&lt;/p&gt;
+
+&lt;p&gt;相对于SQL层层嵌套的一个整体，PySpark可以拆分成多步，并可以十分方便地把中间结果保存为变量，更有利于调试和修改；&lt;/p&gt;
+
+&lt;p&gt;PySpark可以与Python中的其他模块结合使用，可以将多种功能有机结合成一个系统&lt;/p&gt;
+
+&lt;p&gt;PySpark SQL模块许多函数、方法与SQL中关键字一样，可以以比较低的学习成本切换&lt;/p&gt;
+
+&lt;p&gt;最重要的，Spark是基于内存计算的，计算速度本身比Hive快很多倍&lt;/p&gt;
+
+&lt;p&gt;refer：https://www.jianshu.com/p/177cbcb1cb6f&lt;/p&gt;</content><author><name>Clooney</name><email>gkluni317@gmail.com</email></author><summary type="html">Apache Spark 是目前处理和使用大数据的最广泛使用的框架之一，Python是数据分析、机器学习等最广泛使用的编程语言之一。为了用Spark支持Python，Apache Spark社区发布了一个工具PySpark。使用PySpark，您也可以使用Python编程语言处理RDD。正是由于一个名为Py4j的库，他们才能实现这一目标。</summary></entry></feed>

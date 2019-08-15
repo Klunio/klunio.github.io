@@ -1,7 +1,7 @@
 ---
 layout: single
 author_profile: true
-title:  "DJANGO LEARNING NOTE"
+title:  "Django Note"
 date:   2019-08-09 14:55:40 +0800
 categories: note Django
 collection: Django

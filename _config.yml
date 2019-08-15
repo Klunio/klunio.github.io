@@ -68,10 +68,10 @@ paginate: 5
 
 # Archive
 category_archive:
-  type: jekyll-archives
+  type: liquid
   path: /categories/
 tag_archive:
-  type: jekyll-archives
+  type: liquid
   path: /tags/
 
 encoding: utf-8

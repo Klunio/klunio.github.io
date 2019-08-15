@@ -1,0 +1,753 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>REST framework — Serializer &amp; ViewSets - Clooney’s site</title>
+<meta name="description" content="Serializer">
+
+
+  <meta name="author" content="Clooney">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="Clooney's site">
+<meta property="og:title" content="REST framework — Serializer &amp; ViewSets">
+<meta property="og:url" content="http://localhost:4000/Django/Django-REST-framework-serializers/">
+
+
+  <meta property="og:description" content="Serializer">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-08-13T21:41:40-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/Django/Django-REST-framework-serializers/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Clooney",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Clooney's site Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Clooney's site
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/" >Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/" >Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://mmistakes.github.io/minimal-mistakes/about/" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/Django/Index" >Django</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">切换菜单</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">首页</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/django" itemprop="item"><span itemprop="name">Django</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">REST framework — Serializer & ViewSets</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/bio-photo.jpeg" alt="Clooney" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Clooney</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>I’m doing my homework here!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">关注</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Guangzhou, China</span>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:gkluni317@gmail.com">
+            <meta itemprop="email" content="gkluni317@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> 电子邮箱
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://instagram.com/yyunquan" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/Klunio" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.weibo.com/xxx" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-weibo" aria-hidden="true"></i> Weibo
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="REST framework — Serializer &amp; ViewSets">
+    <meta itemprop="description" content="Serializer">
+    <meta itemprop="datePublished" content="August 13, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">REST framework — Serializer &amp; ViewSets
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-align-left"></i> 文章结构</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#serializer">Serializer</a>
+    <ul>
+      <li><a href="#使用序列化类">使用序列化类</a></li>
+      <li><a href="#使用modelserializers">✨✨使用ModelSerializers</a></li>
+    </ul>
+  </li>
+  <li><a href="#viewsets">Viewsets</a>
+    <ul>
+      <li><a href="#example">Example</a></li>
+      <li><a href="#viewset">ViewSet</a></li>
+      <li><a href="#genericviewsets">GenericViewSets</a></li>
+      <li><a href="#modelviewset">ModelViewSet</a>
+        <ul>
+          <li><a href="#example-1">Example</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h2 id="serializer">Serializer</h2>
+
+<blockquote>
+  <p>refer : https://q1mi.github.io/Django-REST-framework-documentation/tutorial/1-serialization_zh/#model</p>
+</blockquote>
+
+<p>开发我们的Web API的第一件事是为我们的Web API提供一种将代码片段实例序列化和反序列化为诸如<code class="highlighter-rouge">json</code>之类的表示形式的方式。我们可以通过声明与Django forms非常相似的序列化器（serializers）来实现。 在<code class="highlighter-rouge">snippets</code>的目录下创建一个名为<code class="highlighter-rouge">serializers.py</code>文件，并添加以下内容。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="nn">snippets.models</span> <span class="kn">import</span> <span class="n">Snippet</span><span class="p">,</span> <span class="n">LANGUAGE_CHOICES</span><span class="p">,</span> <span class="n">STYLE_CHOICES</span>
+
+
+<span class="k">class</span> <span class="nc">SnippetSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">read_only</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">allow_blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s">'base_template'</span><span class="p">:</span> <span class="s">'textarea.html'</span><span class="p">})</span>
+    <span class="n">linenos</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">language</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">LANGUAGE_CHOICES</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'python'</span><span class="p">)</span>
+    <span class="n">style</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">STYLE_CHOICES</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'friendly'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">):</span>
+        <span class="s">"""
+        根据提供的验证过的数据创建并返回一个新的`Snippet`实例。
+        """</span>
+        <span class="k">return</span> <span class="n">Snippet</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">**</span><span class="n">validated_data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">):</span>
+        <span class="s">"""
+        根据提供的验证过的数据更新和返回一个已经存在的`Snippet`实例。
+        """</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">validated_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'title'</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">validated_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'code'</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">linenos</span> <span class="o">=</span> <span class="n">validated_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'linenos'</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">linenos</span><span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">language</span> <span class="o">=</span> <span class="n">validated_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'language'</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="n">validated_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'style'</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">instance</span>
+</code></pre></div></div>
+
+<p>序列化器类的第一部分定义了序列化/反序列化的字段。<code class="highlighter-rouge">create()</code>和<code class="highlighter-rouge">update()</code>方法定义了在调用<code class="highlighter-rouge">serializer.save()</code>时如何创建和修改完整的实例。</p>
+
+<p>序列化器类与Django <code class="highlighter-rouge">Form</code>类非常相似，并在各种字段中包含类似的验证标志，例如<code class="highlighter-rouge">required</code>，<code class="highlighter-rouge">max_length</code>和<code class="highlighter-rouge">default</code>。</p>
+
+<p>字段标志还可以控制serializer在某些情况下如何显示，比如渲染HTML的时候。上面的<code class="highlighter-rouge">{'base_template': 'textarea.html'}</code>标志等同于在Django <code class="highlighter-rouge">Form</code>类中使用<code class="highlighter-rouge">widget=widgets.Textarea</code>。这对于控制如何显示可浏览器浏览的API特别有用，我们将在本教程的后面看到。</p>
+
+<p>我们实际上也可以通过使用<code class="highlighter-rouge">ModelSerializer</code>类来节省时间，就像我们后面会用到的那样。但是现在我们还继续使用我们明确定义的serializer。</p>
+
+<h3 id="使用序列化类">使用序列化类</h3>
+
+<p>在我们进一步了解之前，我们先来熟悉使用我们新的Serializer类。输入下面的命令进入Django shell。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python manage.py shell
+</code></pre></div></div>
+
+<p>好的，像下面一样导入几个模块，然后开始创建一些代码片段来处理。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">snippets.models</span> <span class="kn">import</span> <span class="n">Snippet</span>
+<span class="kn">from</span> <span class="nn">snippets.serializers</span> <span class="kn">import</span> <span class="n">SnippetSerializer</span>
+<span class="kn">from</span> <span class="nn">rest_framework.renderers</span> <span class="kn">import</span> <span class="n">JSONRenderer</span>
+<span class="kn">from</span> <span class="nn">rest_framework.parsers</span> <span class="kn">import</span> <span class="n">JSONParser</span>
+
+<span class="n">snippet</span> <span class="o">=</span> <span class="n">Snippet</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">'foo = "bar"</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="n">snippet</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="n">snippet</span> <span class="o">=</span> <span class="n">Snippet</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">'print "hello, world"</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="n">snippet</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>我们现在已经有几个片段实例了，让我们看一下将其中一个实例序列化。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">snippet</span><span class="p">)</span>
+<span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+<span class="c"># {'id': 2, 'title': u'', 'code': u'print "hello, world"\n', 'linenos': False, 'language': u'python', 'style': u'friendly'}</span>
+</code></pre></div></div>
+
+<p>此时，我们将模型实例转换为Python原生数据类型。要完成序列化过程，我们将数据转换成<code class="highlighter-rouge">json</code>。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">content</span> <span class="o">=</span> <span class="n">JSONRenderer</span><span class="p">()</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">content</span>
+<span class="c"># '{"id": 2, "title": "", "code": "print \\"hello, world\\"\\n", "linenos": false, "language": "python", "style": "friendly"}'</span>
+</code></pre></div></div>
+
+<p>反序列化是类似的。首先我们将一个流（stream）解析为Python原生数据类型…</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.utils.six</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+
+<span class="n">stream</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">JSONParser</span><span class="p">()</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>…然后我们要将Python原生数据类型恢复成正常的对象实例。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<span class="c"># True</span>
+<span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span>
+<span class="c"># OrderedDict([('title', ''), ('code', 'print "hello, world"\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')])</span>
+<span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="c"># &lt;Snippet: Snippet object&gt;</span>
+</code></pre></div></div>
+
+<p>可以看到API和表单(forms)是多么相似。当我们开始使用我们的序列化类编写视图的时候，相似性会变得更加明显。</p>
+
+<p>我们也可以序列化查询结果集（querysets）而不是模型实例。我们只需要为serializer添加一个<code class="highlighter-rouge">many=True</code>标志。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">Snippet</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">(),</span> <span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+<span class="c"># [OrderedDict([('id', 1), ('title', u''), ('code', u'foo = "bar"\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')]), OrderedDict([('id', 2), ('title', u''), ('code', u'print "hello, world"\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')]), OrderedDict([('id', 3), ('title', u''), ('code', u'print "hello, world"'), ('linenos', False), ('language', 'python'), ('style', 'friendly')])]</span>
+</code></pre></div></div>
+
+<h3 id="使用modelserializers">✨✨使用ModelSerializers</h3>
+
+<p>我们的<code class="highlighter-rouge">SnippetSerializer</code>类中重复了很多包含在<code class="highlighter-rouge">Snippet</code>模型类（model）中的信息。如果能保证我们的代码整洁，那就更好了。</p>
+
+<p>就像Django提供了<code class="highlighter-rouge">Form</code>类和<code class="highlighter-rouge">ModelForm</code>类一样，REST framework包括<code class="highlighter-rouge">Serializer</code>类和<code class="highlighter-rouge">ModelSerializer</code>类。</p>
+
+<p>我们来看看使用<code class="highlighter-rouge">ModelSerializer</code>类重构我们的序列化类。再次打开<code class="highlighter-rouge">snippets/serializers.py</code>文件，并将<code class="highlighter-rouge">SnippetSerializer</code>类替换为以下内容。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SnippetSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Snippet</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s">'id'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">,</span> <span class="s">'code'</span><span class="p">,</span> <span class="s">'linenos'</span><span class="p">,</span> <span class="s">'language'</span><span class="p">,</span> <span class="s">'style'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>序列一个非常棒的属性就是可以通过打印序列化器类实例的结构(representation)查看它的所有字段。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">snippets.serializers</span> <span class="kn">import</span> <span class="n">SnippetSerializer</span>
+<span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">serializer</span><span class="p">))</span>
+<span class="c"># SnippetSerializer():</span>
+<span class="c">#    id = IntegerField(label='ID', read_only=True)</span>
+<span class="c">#    title = CharField(allow_blank=True, max_length=100, required=False)</span>
+<span class="c">#    code = CharField(style={'base_template': 'textarea.html'})</span>
+<span class="c">#    linenos = BooleanField(required=False)</span>
+<span class="c">#    language = ChoiceField(choices=[('Clipper', 'FoxPro'), ('Cucumber', 'Gherkin'), ('RobotFramework', 'RobotFramework'), ('abap', 'ABAP'), ('ada', 'Ada')...</span>
+<span class="c">#    style = ChoiceField(choices=[('autumn', 'autumn'), ('borland', 'borland'), ('bw', 'bw'), ('colorful', 'colorful')...</span>
+</code></pre></div></div>
+
+<p>重要的是要记住，<code class="highlighter-rouge">ModelSerializer</code>类并不会做任何特别神奇的事情，它们只是创建序列化器类的快捷方式：</p>
+
+<ul>
+  <li>一组自动确定的字段。</li>
+  <li>默认简单实现的<code class="highlighter-rouge">create()</code>和<code class="highlighter-rouge">update()</code>方法。</li>
+</ul>
+
+<h2 id="viewsets">Viewsets</h2>
+
+<blockquote>
+  <p>refer : https://q1mi.github.io/Django-REST-framework-documentation/api-guide/viewsets_zh/</p>
+</blockquote>
+
+<p>Django REST framework允许你将一组相关视图的逻辑组合在单个类（称为 <code class="highlighter-rouge">ViewSet</code>）中。 在其他框架中，你也可以找到概念上类似于 ‘Resources’ 或 ‘Controllers’的类似实现。</p>
+
+<p><code class="highlighter-rouge">ViewSet</code> 只是<strong>一种基于类的视图，它不提供任何方法处理程序</strong>（如 <code class="highlighter-rouge">.get()</code>或<code class="highlighter-rouge">.post()</code>）,而是提供诸如 <code class="highlighter-rouge">.list()</code> 和 <code class="highlighter-rouge">.create()</code> 之类的操作。</p>
+
+<p><code class="highlighter-rouge">ViewSet</code> 的方法处理程序仅使用 <code class="highlighter-rouge">.as_view()</code> 方法绑定到完成视图的相应操作。</p>
+
+<p>通常不是在 urlconf 中的视图集中显示注册视图，而是要使用路由类注册视图集，该类会自动为你确定 urlconf。</p>
+
+<h3 id="example">Example</h3>
+
+<p>让我们定义一个简单的视图集，可以用来列出或检索系统中的所有用户。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span>
+<span class="kn">from</span> <span class="nn">myapps.serializers</span> <span class="kn">import</span> <span class="n">UserSerializer</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
+<span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+
+<span class="k">class</span> <span class="nc">UserViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ViewSet</span><span class="p">):</span>
+    <span class="s">"""
+    A simple ViewSet for listing or retrieving users.
+    """</span>
+    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">UserSerializer</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">retrieve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">UserSerializer</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>如果我们需要，我们可以将这个viewset绑定到两个单独的视图，想这样：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">user_list</span> <span class="o">=</span> <span class="n">UserViewSet</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s">'get'</span><span class="p">:</span> <span class="s">'list'</span><span class="p">})</span>
+<span class="n">user_detail</span> <span class="o">=</span> <span class="n">UserViewSet</span><span class="o">.</span><span class="n">as_view</span><span class="p">({</span><span class="s">'get'</span><span class="p">:</span> <span class="s">'retrieve'</span><span class="p">})</span>
+</code></pre></div></div>
+
+<p>通常我们不会这么做，我们会用一个router来注册我们的viewset，让urlconf自动生成。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">myapp.views</span> <span class="kn">import</span> <span class="n">UserViewSet</span>
+<span class="kn">from</span> <span class="nn">rest_framework.routers</span> <span class="kn">import</span> <span class="n">DefaultRouter</span>
+
+<span class="n">router</span> <span class="o">=</span> <span class="n">DefaultRouter</span><span class="p">()</span>
+<span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s">r'users'</span><span class="p">,</span> <span class="n">UserViewSet</span><span class="p">)</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">router</span><span class="o">.</span><span class="n">urls</span>
+</code></pre></div></div>
+
+<p>不需要编写自己的视图集，你通常会想要使用提供默认行为的现有基类。例如：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">UserViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="s">"""
+    用于查看和编辑用户实例的视图集。
+    """</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">UserSerializer</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>与使用 <code class="highlighter-rouge">View</code> 类相比，使用 <code class="highlighter-rouge">ViewSet</code> 类有两个主要优点。</p>
+
+<ul>
+  <li>重复的逻辑可以组合成一个类。在上面的例子中，我们只需要指定一次 <code class="highlighter-rouge">queryset</code>，它将在多个视图中使用。</li>
+  <li>通过使用 routers, 哦们不再需要自己处理URLconf。</li>
+</ul>
+
+<p>这两者都有一个权衡。使用常规的 views 和 URL confs 更明确也能够为你提供更多的控制。ViewSets有助于快速启动和运行，或者当你有大型的API，并且希望在整个过程中执行一致的 URL 配置。</p>
+
+<h3 id="viewset">ViewSet</h3>
+
+<p><code class="highlighter-rouge">ViewSet</code> 继承自 <code class="highlighter-rouge">APIView</code>。你可以使用任何标准属性，如 <code class="highlighter-rouge">permission_classes</code>, <code class="highlighter-rouge">authentication_classes</code> 以便控制视图集上的 API 策略。</p>
+
+<p><code class="highlighter-rouge">ViewSet</code> 类不提供任何操作的实现。为了使用 <code class="highlighter-rouge">ViewSet</code> 类，你将重写该类并显式地定义动作实现。</p>
+
+<h3 id="genericviewsets">GenericViewSets</h3>
+
+<p><code class="highlighter-rouge">GenericViewSet</code> 类继承自 <code class="highlighter-rouge">GenericAPIView</code>，并提供了 <code class="highlighter-rouge">get_object</code>， <code class="highlighter-rouge">get_queryset</code> 方法和其他通用视图基本行为的默认配置，但默认情况不包括任何操作。</p>
+
+<p>In order to use a <code class="highlighter-rouge">GenericViewSet</code> class you’ll override the class and either mixin the required mixin classes, or define the action implementations explicitly.</p>
+
+<h3 id="modelviewset">ModelViewSet</h3>
+
+<p>The <code class="highlighter-rouge">ModelViewSet</code> class inherits from <code class="highlighter-rouge">GenericAPIView</code> and includes implementations for various actions, by mixing in the behavior of the various mixin classes.</p>
+
+<p>The actions provided by the <code class="highlighter-rouge">ModelViewSet</code> class are <code class="highlighter-rouge">.list()</code>, <code class="highlighter-rouge">.retrieve()</code>,<code class="highlighter-rouge">.create()</code>, <code class="highlighter-rouge">.update()</code>, <code class="highlighter-rouge">.partial_update()</code>, and <code class="highlighter-rouge">.destroy()</code>.</p>
+
+<h4 id="example-1"><a href="https://q1mi.github.io/Django-REST-framework-documentation/api-guide/viewsets_zh/#example_1">Example</a></h4>
+
+<p>Because <code class="highlighter-rouge">ModelViewSet</code> extends <code class="highlighter-rouge">GenericAPIView</code>, you’ll normally need to provide at least the <code class="highlighter-rouge">queryset</code> and <code class="highlighter-rouge">serializer_class</code> attributes. For example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">AccountViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="s">"""
+    A simple ViewSet for viewing and editing accounts.
+    """</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">AccountSerializer</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsAccountAdminOrReadOnly</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Note that you can use any of the standard attributes or method overrides provided by <code class="highlighter-rouge">GenericAPIView</code>. For example, to use a <code class="highlighter-rouge">ViewSet</code> that dynamically determines the queryset it should operate on, you might do something like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">AccountViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="s">"""
+    A simple ViewSet for viewing and editing the accounts
+    associated with the user.
+    """</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">AccountSerializer</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsAccountAdminOrReadOnly</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">accounts</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Note however that upon removal of the <code class="highlighter-rouge">queryset</code> property from your <code class="highlighter-rouge">ViewSet</code>, any associated <a href="https://q1mi.github.io/Django-REST-framework-documentation/api-guide/viewsets_zh/routers.md">router</a> will be unable to derive the base_name of your Model automatically, and so you will have to specify the <code class="highlighter-rouge">base_name</code> kwarg as part of your <a href="https://q1mi.github.io/Django-REST-framework-documentation/api-guide/viewsets_zh/routers.md">router registration</a>.</p>
+
+<p>Also note that although this class provides the complete set of create/list/retrieve/update/destroy actions by default, you can restrict the available operations by using the standard permission classes.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 分类: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#django" class="page__taxonomy-item" rel="tag">Django</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/categories/#note" class="page__taxonomy-item" rel="tag">note</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 更新时间:</strong> <time datetime="2019-08-13T21:41:40-04:00">August 13, 2019</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/Django/Django-Query/" class="pagination--pager" title="Query in Django
+">向前</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">向后</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="输入您要搜索的关键词..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>关注:</strong></li>
+    
+
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Clooney. 技术来自于 <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
