@@ -289,3 +289,11 @@ Also note that although this class provides the complete set of create/list/retr
 
 
 
+## API Guide
+
+
+
+This router includes routes for the standard set of `list`, `create`, `retrieve`, `update`, `partial_update` and `destroy` actions. The viewset can also mark additional methods to be routed, using the `@action` decorator.
+
+![image-20190815102625601](/Users/guyunquan/Library/Application Support/typora-user-images/image-20190815102625601.png)
+
