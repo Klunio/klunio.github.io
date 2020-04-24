@@ -8,8 +8,8 @@ main:
   #   url: /tags/
   - title: "About"
     url: https://mmistakes.github.io/minimal-mistakes/about/
-  - title: "Posts"
-    url: /posts
+  # - title: "Posts"
+  #   url: /posts
   - title: "Django"
     url: /Django
   # - title: "Sitemap"
