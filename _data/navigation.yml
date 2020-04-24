@@ -4,13 +4,13 @@ main:
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "Categories"
     url: /categories/
-  - title: "Tags"
-    url: /tags/
+  # - title: "Tags"
+  #   url: /tags/
   - title: "About"
     url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Posts"
-  #   url: /posts
+  - title: "Posts"
+    url: /posts
   - title: "Django"
-    url: /Django/Index
+    url: /Django
   # - title: "Sitemap"
   #   url: /sitemap/
